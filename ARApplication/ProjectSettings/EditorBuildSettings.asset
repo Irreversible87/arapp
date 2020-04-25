@@ -4,5 +4,13 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
-  m_configObjects: {}
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/mainmenu.unity
+    guid: 953d65e3544d24c4f8601f4de47e58c6
+  - enabled: 1
+    path: Assets/Scenes/armain.unity
+    guid: 96da2ae568aebf642aaa82eb37621401
+  m_configObjects:
+    com.unity.xr.arcore.PlayerSettings: {fileID: 11400000, guid: 750816440bb818c4a8fdf65ae54fef96,
+      type: 2}
