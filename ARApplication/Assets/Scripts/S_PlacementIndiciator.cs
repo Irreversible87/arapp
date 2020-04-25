@@ -1,4 +1,25 @@
-﻿using System.Collections.Generic;
+﻿/*
+ * Placement indicator script
+ * 
+ * A script that detects planes in augmented
+ * reality via raycast hit detection. If a plane
+ * is detected, a marker is shown through the display.
+ * 
+ * This code is based on:
+ * https://vrgamedevelopment.pro/how-to-create-an-augmented-reality-app-in-unity/
+ * visited April. 15th 2020
+ * 
+ * Coder: Daniel Buckley
+ * Date: 25/09/2019
+ * 
+ * Rewritten by Lars Pastoor
+ * Date: 15/04/2020
+ * Version 1.0
+ * 
+ * 
+ */
+
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
