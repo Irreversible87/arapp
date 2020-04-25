@@ -94,8 +94,8 @@ MonoBehaviour:
     y: 0
     width: 505
     height: 1028
-  m_MinSize: {x: 201, y: 221}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 17}
@@ -264,8 +264,8 @@ MonoBehaviour:
     y: 0
     width: 1536
     height: 1028
-  m_MinSize: {x: 202, y: 221}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 18}
@@ -409,20 +409,20 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts
+    - Assets/AddressableAssetsData
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts
+  - Assets/AddressableAssetsData
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\Dokumente\FH Emden Leer\2016 - Medientechnik\Bachelor Arbeit\ARApp\arapp\ARApplication
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 79}
-    m_SelectedIDs: 90360000
-    m_LastClickedID: 13968
-    m_ExpandedIDs: 0000000080360000823600008436000000ca9a3b
+    m_SelectedIDs: bc410000
+    m_LastClickedID: 16828
+    m_ExpandedIDs: 00000000c8360000ca360000cc360000bc41000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -450,7 +450,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000803600008236000084360000
+    m_ExpandedIDs: 00000000c8360000ca360000cc360000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -573,9 +573,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
+      m_SelectedIDs: fae9ffff
       m_LastClickedID: 0
-      m_ExpandedIDs: 26ceffff42ceffff4acfffff50cfffffd2d3ffffeed3fffff6d4fffffcd4ffff3ad6ffff56d6ffff5ed7ffff64d7ffff0ad8ffff26d8ffff2ed9ffff34d9ffffdad9fffff6d9fffffedaffff04dbffff0eddffff2addffff32deffff38deffff76dfffff92dfffff9ae0ffffa0e0fffff2e3ffff0ee4ffff16e5ffff1ce5ffffc2e5ffffdee5ffffe6e6ffffece6ffffa6e9ffffc2e9ffffcaeaffffd0eaffffc4ebffffe0ebffffe8ecffffeeecffff10eeffff28eeffff30efffff36efffff34f0ffff4cf0ffff54f1ffff5af1fffff2f3ffff0ef4ffff16f5ffff1cf5ffffc2f5ffffdef5ffffeaf6fffff4f6ffffb2f7ffffcaf7ffffd2f8ffffd8f8ffff80faffffacfaffff40fbffff6e3a0000763a0000224200002a420000be470000c64700009a550000a2550000
+      m_ExpandedIDs: 70fbffff7a360000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -630,14 +630,14 @@ MonoBehaviour:
   m_Gizmos: 1
   m_SceneIsLit: 1
   m_SceneLighting: 1
-  m_2DMode: 1
+  m_2DMode: 0
   m_isRotationLocked: 0
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 637.99347, y: 1312.867, z: -728.7272}
+    m_Target: {x: 0, y: 0, z: 0}
     speed: 2
-    m_Value: {x: 637.99347, y: 1312.867, z: -728.7272}
+    m_Value: {x: 0, y: 0, z: 0}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -665,7 +665,7 @@ MonoBehaviour:
       m_Size: {x: 0, y: 0}
     yGrid:
       m_Fade:
-        m_Target: 0
+        m_Target: 1
         speed: 2
         m_Value: 1
       m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 0.4}
@@ -673,7 +673,7 @@ MonoBehaviour:
       m_Size: {x: 1, y: 1}
     zGrid:
       m_Fade:
-        m_Target: 1
+        m_Target: 0
         speed: 2
         m_Value: 1
       m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 0.4}
@@ -683,17 +683,17 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0, y: 0, z: 0, w: 1}
+    m_Target: {x: -0.08717229, y: 0.89959055, z: -0.21045254, w: -0.3726226}
     speed: 2
-    m_Value: {x: 0, y: 0, z: 0, w: 1}
+    m_Value: {x: -0.08717229, y: 0.89959055, z: -0.21045254, w: -0.3726226}
   m_Size:
-    m_Target: 2192.1191
+    m_Target: 0.070710674
     speed: 2
-    m_Value: 2192.1191
+    m_Value: 0.070710674
   m_Ortho:
-    m_Target: 1
+    m_Target: 0
     speed: 2
-    m_Value: 1
+    m_Value: 0
   m_CameraSettings:
     m_Speed: 1
     m_SpeedNormalized: 0.49748743
