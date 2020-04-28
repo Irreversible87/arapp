@@ -18,9 +18,10 @@ MonoBehaviour:
   m_GUID: a395f12c9b51eee478c6da8e902a6eff
   m_SerializeEntries:
   - m_GUID: 8b5bb52631960c944a1edf6366146e09
-    m_Address: Assets/Assets/lowpoly_beetle.fbx
+    m_Address: lowpoly_beetle
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - arcontent
     m_MainAsset: {fileID: -927199367670048503, guid: 8b5bb52631960c944a1edf6366146e09,
       type: 3}
     m_TargetAsset: {fileID: -927199367670048503, guid: 8b5bb52631960c944a1edf6366146e09,

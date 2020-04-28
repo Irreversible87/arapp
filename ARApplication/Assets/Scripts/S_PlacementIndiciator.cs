@@ -23,15 +23,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
+using UnityEngine.AddressableAssets;
+
 
 public class S_PlacementIndiciator : MonoBehaviour
 {
-    private ARRaycastManager rayManager;
     private GameObject visual;
+    private ARRaycastManager rayManager;
 
     // Start is called before the first frame update
     void Start()
     {
+
         // get AR components
         rayManager = FindObjectOfType<ARRaycastManager>();
         visual = transform.GetChild(0).gameObject;
