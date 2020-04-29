@@ -5,9 +5,11 @@
  * to navigate through the menus from within the running 
  * application
  * 
- * Coder: Lars Pastoor
- * Date: 22/04/2020
- * Version: 0.1
+ * @Author Lars Pastoor
+ * @Date 22/04/2020
+ * 
+ * @Version 1.0
+ * --- init
  */
 
 using System.Collections;

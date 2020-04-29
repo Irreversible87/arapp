@@ -32,7 +32,9 @@ public static class CreateAddressablesLoader
         var locations = await Addressables.LoadResourceLocationsAsync(assetNameOrLabel).Task;
         // instantiate loaded addressables
         foreach (var location in locations)
+        {
             createdObjs.Add(await Addressables.InstantiateAsync(location).Task as T);
-    }
-    
+        }
+            
+    }  
 }

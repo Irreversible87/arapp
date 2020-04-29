@@ -30,6 +30,7 @@ public class ARSpawner : MonoBehaviour
     [SerializeField] private string _name;
 
     private List<GameObject> Assets { get; } = new List<GameObject>();
+    private List<AssetPreview> Previews { get; } = new List<AssetPreview>();
     private ARRaycastManager rayManager;
 
     /*
@@ -46,7 +47,6 @@ public class ARSpawner : MonoBehaviour
 
         // create addressable assets
         CreateAndWaitUntilCompleted();
-
     }
 
     /*
