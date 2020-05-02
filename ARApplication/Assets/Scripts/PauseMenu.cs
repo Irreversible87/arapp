@@ -71,16 +71,4 @@ public class PauseMenu : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
-    /*
-    * Method to navigate to the library
-    * menu from within the application
-    * menu
-    * 
-    * @return void
-    * 
-    */
-    public void OpenLib()
-    {
-        Debug.Log("Open Library...");
-    }
 }

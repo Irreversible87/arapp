@@ -20,6 +20,8 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 
@@ -29,10 +31,13 @@ public class ARSpawner : MonoBehaviour
     [SerializeField] private string _label;
     [SerializeField] private string _name;
 
-    private List<GameObject> Assets { get; } = new List<GameObject>();
-    private List<AssetPreview> Previews { get; } = new List<AssetPreview>();
+    public List<GameObject> Assets { get; } = new List<GameObject>();
+    public GameObject buttonPrefab;
+    public GameObject panel;
+
     private ARRaycastManager rayManager;
 
+    private GameObject arAsset;
     /*
      * Start() method
      * 
@@ -41,6 +46,7 @@ public class ARSpawner : MonoBehaviour
      */
     private void Start()
     {
+
 
         // get raycaster manager objects
         rayManager = FindObjectOfType<ARRaycastManager>();
@@ -65,8 +71,13 @@ public class ARSpawner : MonoBehaviour
         // hitcheck, if AR plane surface is hit, update position and rotation of the asset
         if (hits.Count > 0)
         {
-            Assets[0].transform.position = hits[0].pose.position;
-            Assets[0].transform.rotation = hits[0].pose.rotation;
+            arAsset.transform.position = hits[0].pose.position;
+            arAsset.transform.rotation = hits[0].pose.rotation;
+
+            if (!arAsset.activeInHierarchy)
+            {
+                arAsset.SetActive(true);
+            }
         }
 
     }
@@ -84,11 +95,31 @@ public class ARSpawner : MonoBehaviour
     {
         await CreateAddressablesLoader.InitAsset(_label, Assets);
         await CreateAddressablesLoader.InitAsset(_name, Assets);
+        AddButtons();
 
         foreach (var asset in Assets)
         {
             // shows a console log with every loaded asset
-            Debug.Log(asset.name);
+            //Debug.Log(asset.name);
+            asset.SetActive(false);
         }
+    }
+
+    private void AddButtons()
+    {
+        
+        for (int i = 0; i < Assets.Count; i++)
+        {
+            GameObject button = Instantiate(buttonPrefab);
+            button.transform.SetParent(panel.transform);
+            button.GetComponent<Button>().onClick.AddListener(OnClick);
+            button.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = Assets[i].name;
+            button.name = "Button" + i;
+        }
+
+    }
+
+    private void OnClick()
+    {
     }
 }

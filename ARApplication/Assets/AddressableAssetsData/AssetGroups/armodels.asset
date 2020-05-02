@@ -22,9 +22,16 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - arcontent
-    m_MainAsset: {fileID: 5913649198372733864, guid: 262ec8be939c1e648b30d3590895a628,
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 452af38be15bd1e40879426978f53510
+    m_Address: Girl_head Variant
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - arcontent
+    m_MainAsset: {fileID: 4822042976781543096, guid: 452af38be15bd1e40879426978f53510,
       type: 3}
-    m_TargetAsset: {fileID: 5913649198372733864, guid: 262ec8be939c1e648b30d3590895a628,
+    m_TargetAsset: {fileID: 4822042976781543096, guid: 452af38be15bd1e40879426978f53510,
       type: 3}
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: b67639d4f76765248a28fdd69619d9bb, type: 2}
