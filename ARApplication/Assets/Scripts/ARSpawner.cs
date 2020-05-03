@@ -15,6 +15,12 @@
  * @Version 1.0
  * @Date 29/04/2020
  * 
+ * @Version 1.1
+ * @Date 03/05/2020
+ * 
+ * -> added AddButtons method and onClick event
+ * -> added ActivateAssets method
+ * 
  */
 
 using System.Collections.Generic;
@@ -24,6 +30,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
+using UnityEngine.AddressableAssets;
 
 public class ARSpawner : MonoBehaviour
 {
@@ -46,12 +53,10 @@ public class ARSpawner : MonoBehaviour
      */
     private void Start()
     {
-
-
         // get raycaster manager objects
         rayManager = FindObjectOfType<ARRaycastManager>();
 
-        // create addressable assets
+        // call and wait for all addressables to load
         CreateAndWaitUntilCompleted();
     }
 
@@ -74,10 +79,8 @@ public class ARSpawner : MonoBehaviour
             arAsset.transform.position = hits[0].pose.position;
             arAsset.transform.rotation = hits[0].pose.rotation;
 
-            if (!arAsset.activeInHierarchy)
-            {
-                arAsset.SetActive(true);
-            }
+            ActivateAsset();
+            
         }
 
     }
@@ -86,7 +89,7 @@ public class ARSpawner : MonoBehaviour
      * 
      * Creates objects of type CreateAdressablesLoader
      * and invokes Init Asset method from CreateAddressablesLoader
-     * class
+     * class. Also dissables all loaded assets in scene.
      * 
      * Async task to allow await for all assets to be created
      * 
@@ -99,27 +102,88 @@ public class ARSpawner : MonoBehaviour
 
         foreach (var asset in Assets)
         {
-            // shows a console log with every loaded asset
-            //Debug.Log(asset.name);
             asset.SetActive(false);
         }
     }
-
+    /*
+     * ClearAsset Method
+     * 
+     * simple method to clear the given
+     * addressable out of memory.
+     * 
+     * 
+     */
+    private void ClearAsset(GameObject obj)
+    {
+        Addressables.Release(obj);
+    }
+    /*
+     * ActivateAsset()
+     * 
+     * Method to check if the AR Asset is already
+     * active in scene and if not, enables it.
+     * Also disables all other addressables that
+     * are called before.
+     * 
+     */
+    private void ActivateAsset()
+    {
+        if (!arAsset.activeInHierarchy)
+        {
+            foreach (var asset in Assets)
+            {
+                asset.SetActive(false);
+            }
+            arAsset.SetActive(true);
+        }
+    }
+    /*
+     * AddButtons()
+     * 
+     * Method to instantiate a prefabe button for
+     * each addressable asset. The user then can
+     * select each addressable asset from within the
+     * library menu.
+     * 
+     */
     private void AddButtons()
     {
-        
+        // for loop for all adressable assets created
         for (int i = 0; i < Assets.Count; i++)
         {
+            // buttonIndex to clearly indentify the button after creation
+            int buttonIndex;
+            // instance from prefab button
             GameObject button = Instantiate(buttonPrefab);
+            // create buttons with transfrom to button panel
             button.transform.SetParent(panel.transform);
-            button.GetComponent<Button>().onClick.AddListener(OnClick);
             button.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = Assets[i].name;
+            button.transform.GetChild(0).GetComponent<TextMeshProUGUI>().fontSize = 75;
             button.name = "Button" + i;
+            buttonIndex = i;
+            // add button listener a transfer the index and the button object to onClick listener
+            button.GetComponent<Button>().onClick.AddListener(() => { OnClick(buttonIndex, button); });
         }
 
     }
-
-    private void OnClick()
+    /*
+     * OnClick Event
+     * 
+     * Checks if the button idex is the same as
+     * a asset on Assets list index and sets the AR Asset
+     * to this asset from list.
+     * 
+     */
+    private void OnClick(int index, GameObject button)
     {
+        Debug.Log("Clicked on Button" + button.name + " with Index: " + index);
+        for (int i = 0; i < Assets.Count; i++)
+        {
+            if (index == i)
+            {
+                arAsset = Assets[i];
+                Debug.Log(arAsset);
+            }
+        }
     }
 }
