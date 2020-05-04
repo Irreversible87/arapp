@@ -51,13 +51,14 @@ public class ARSpawner : MonoBehaviour
      * will be executed once the application
      * has started
      */
-    private void Start()
+    private async void Start()
     {
         // get raycaster manager objects
         rayManager = FindObjectOfType<ARRaycastManager>();
 
         // call and wait for all addressables to load
-        CreateAndWaitUntilCompleted();
+        await CreateAndWaitUntilCompleted();
+        AddButtons();
     }
 
     /*
@@ -98,7 +99,7 @@ public class ARSpawner : MonoBehaviour
     {
         await CreateAddressablesLoader.InitAsset(_label, Assets);
         await CreateAddressablesLoader.InitAsset(_name, Assets);
-        AddButtons();
+        
 
         foreach (var asset in Assets)
         {
