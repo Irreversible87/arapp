@@ -34,9 +34,7 @@ using UnityEngine.AddressableAssets;
 
 public class ARSpawner : MonoBehaviour
 {
-    // fields to be accessed from inspector window
-    [SerializeField] private string _label;
-    [SerializeField] private string _name;
+    private readonly string _label = "arcontent";
 
     public List<GameObject> Assets { get; } = new List<GameObject>();
     public GameObject buttonPrefab;
@@ -98,8 +96,6 @@ public class ARSpawner : MonoBehaviour
     private async Task CreateAndWaitUntilCompleted()
     {
         await CreateAddressablesLoader.InitAsset(_label, Assets);
-        await CreateAddressablesLoader.InitAsset(_name, Assets);
-        
 
         foreach (var asset in Assets)
         {

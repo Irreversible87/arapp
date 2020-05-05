@@ -18,7 +18,7 @@ MonoBehaviour:
   m_GUID: a395f12c9b51eee478c6da8e902a6eff
   m_SerializeEntries:
   - m_GUID: 262ec8be939c1e648b30d3590895a628
-    m_Address: lowpoly_beetle Variant
+    m_Address: beetle
     m_ReadOnly: 0
     m_SerializedLabels:
     - arcontent
@@ -27,7 +27,7 @@ MonoBehaviour:
     m_TargetAsset: {fileID: 5913649198372733864, guid: 262ec8be939c1e648b30d3590895a628,
       type: 3}
   - m_GUID: 452af38be15bd1e40879426978f53510
-    m_Address: Girl_head Variant
+    m_Address: girlHead
     m_ReadOnly: 0
     m_SerializedLabels:
     - arcontent
@@ -36,7 +36,7 @@ MonoBehaviour:
     m_TargetAsset: {fileID: 4822042976781543096, guid: 452af38be15bd1e40879426978f53510,
       type: 3}
   - m_GUID: 9256c8e1b987fca48b6eed5c8acdcdcf
-    m_Address: fire-extinguisher Variant
+    m_Address: fireExtinguisher
     m_ReadOnly: 0
     m_SerializedLabels:
     - arcontent
