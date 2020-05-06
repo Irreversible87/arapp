@@ -40,10 +40,8 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - arcontent
-    m_MainAsset: {fileID: 2988696756005038113, guid: 9256c8e1b987fca48b6eed5c8acdcdcf,
-      type: 3}
-    m_TargetAsset: {fileID: 2988696756005038113, guid: 9256c8e1b987fca48b6eed5c8acdcdcf,
-      type: 3}
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: b67639d4f76765248a28fdd69619d9bb, type: 2}
   m_SchemaSet:

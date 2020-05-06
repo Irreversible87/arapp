@@ -404,8 +404,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55ce4d7590a1d18439e6ad75060d43eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _label: arcontent
-  _name: 
   buttonPrefab: {fileID: 5174785197781259954, guid: f72d0d47e6de8cc4ea74a98c50a64a52,
     type: 3}
   panel: {fileID: 931271150}

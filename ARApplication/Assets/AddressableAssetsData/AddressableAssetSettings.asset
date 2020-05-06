@@ -48,7 +48,7 @@ MonoBehaviour:
         m_Value: http://localhost/[BuildTarget]
     - m_InheritedParent: 
       m_Id: f3c88a5c73dcd2849a4a3d7067358a76
-      m_ProfileName: azure
+      m_ProfileName: web
       m_Values:
       - m_Id: f3ba1840faf55f448955425401e42296
         m_Value: '[UnityEditor.EditorUserBuildSettings.activeBuildTarget]'
@@ -59,7 +59,7 @@ MonoBehaviour:
       - m_Id: 705bcc82c365dbe43a3170af6d79122a
         m_Value: ServerData/[BuildTarget]
       - m_Id: da82766320b84a047908655638234c52
-        m_Value: https://addressablesba.blob.core.windows.net/[BuildTarget]
+        m_Value: https://www.lars-pastoor.de/public/[BuildTarget]
     m_ProfileEntryNames:
     - m_Id: f3ba1840faf55f448955425401e42296
       m_Name: BuildTarget
