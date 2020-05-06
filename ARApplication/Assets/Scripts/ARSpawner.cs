@@ -43,6 +43,7 @@ public class ARSpawner : MonoBehaviour
     private ARRaycastManager rayManager;
 
     private GameObject arAsset;
+    private GameObject currentButton;
     /*
      * Start() method
      * 
@@ -79,9 +80,7 @@ public class ARSpawner : MonoBehaviour
             arAsset.transform.rotation = hits[0].pose.rotation;
 
             ActivateAsset();
-            
         }
-
     }
     /*
      * CreateAndWaitUntilCompleted Task
@@ -106,13 +105,22 @@ public class ARSpawner : MonoBehaviour
      * ClearAsset Method
      * 
      * simple method to clear the given
-     * addressable out of memory.
+     * addressable out of memory and removes
+     * the created button for it.
      * 
      * 
      */
-    private void ClearAsset(GameObject obj)
+    public void ClearAsset()
     {
-        Addressables.Release(obj);
+        if (arAsset == null)
+        {
+            Debug.Log("No AR Asset selected");
+        } else
+        {
+            Addressables.Release(arAsset);
+            Destroy(currentButton.gameObject);
+        }
+
     }
     /*
      * ActivateAsset()
@@ -174,6 +182,7 @@ public class ARSpawner : MonoBehaviour
     private void OnClick(int index, GameObject button)
     {
         Debug.Log("Clicked on Button" + button.name + " with Index: " + index);
+        currentButton = button;
         for (int i = 0; i < Assets.Count; i++)
         {
             if (index == i)
