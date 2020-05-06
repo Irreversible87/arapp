@@ -4,14 +4,14 @@
  * Simple script that invokes the main menu scene
  * at the start of the application.
  * 
- * Coder: Lars Pastoor
- * Date: 20/04/2020
- * Version: 1.0
+ * @Author Lars Pastoor
+ * @Date 20/04/2020
+ * 
+ * @Version 1.0
+ * --- init
  * 
  */
 
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 

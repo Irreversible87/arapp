@@ -25,14 +25,15 @@ public static class CreateAddressablesLoader
      * instantiate after loading
      * 
      */
-    public static async Task InitAsset<T>(string assetNameOrLabel, List<T> createdObjs)
+    public static async Task InitAsset<T>(string assetName, List<T> createdObjs)
         where T : Object
     {
         // load addressables by name or label
-        var locations = await Addressables.LoadResourceLocationsAsync(assetNameOrLabel).Task;
+        var locations = await Addressables.LoadResourceLocationsAsync(assetName).Task;
         // instantiate loaded addressables
         foreach (var location in locations)
+        {
             createdObjs.Add(await Addressables.InstantiateAsync(location).Task as T);
-    }
-    
+        }  
+    }  
 }
