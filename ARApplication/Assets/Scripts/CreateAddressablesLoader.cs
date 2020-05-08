@@ -35,5 +35,5 @@ public static class CreateAddressablesLoader
         {
             createdObjs.Add(await Addressables.InstantiateAsync(location).Task as T);
         }  
-    }  
+    }
 }

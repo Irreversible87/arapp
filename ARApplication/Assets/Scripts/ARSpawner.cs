@@ -93,7 +93,7 @@ public class ARSpawner : MonoBehaviour
             {
                 ActivateAsset();
                 arAsset.transform.position = hits[0].pose.position;
-                arAsset.transform.rotation = hits[0].pose.rotation; 
+                arAsset.transform.rotation = hits[0].pose.rotation;
             }
         } else
         {
@@ -188,7 +188,6 @@ public class ARSpawner : MonoBehaviour
             button.transform.GetChild(0).GetComponent<TextMeshProUGUI>().fontSize = 75;
             button.name = "Button" + i;
             buttonIndex = i;
-
             button.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, screenWidth);
             // add button listener a transfer the index and the button object to onClick listener
             button.GetComponent<Button>().onClick.AddListener(() => { OnClick(buttonIndex, button); });
