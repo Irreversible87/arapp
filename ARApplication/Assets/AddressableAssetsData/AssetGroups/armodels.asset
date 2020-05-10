@@ -22,18 +22,23 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - arcontent
-    m_MainAsset: {fileID: 5913649198372733864, guid: 262ec8be939c1e648b30d3590895a628,
-      type: 3}
-    m_TargetAsset: {fileID: 5913649198372733864, guid: 262ec8be939c1e648b30d3590895a628,
-      type: 3}
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
   - m_GUID: 452af38be15bd1e40879426978f53510
     m_Address: girlHead
     m_ReadOnly: 0
     m_SerializedLabels:
     - arcontent
-    m_MainAsset: {fileID: 4822042976781543096, guid: 452af38be15bd1e40879426978f53510,
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 6fdc338ef5b95bd42b14377fcebabacf
+    m_Address: Oliver Variant
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - arcontent
+    m_MainAsset: {fileID: 2557283997097046169, guid: 6fdc338ef5b95bd42b14377fcebabacf,
       type: 3}
-    m_TargetAsset: {fileID: 4822042976781543096, guid: 452af38be15bd1e40879426978f53510,
+    m_TargetAsset: {fileID: 2557283997097046169, guid: 6fdc338ef5b95bd42b14377fcebabacf,
       type: 3}
   - m_GUID: 9256c8e1b987fca48b6eed5c8acdcdcf
     m_Address: fireExtinguisher

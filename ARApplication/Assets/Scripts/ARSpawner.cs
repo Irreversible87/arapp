@@ -21,6 +21,18 @@
  * -> added AddButtons method and onClick event
  * -> added ActivateAssets method
  * 
+ * @Version 1.2
+ * @Date 07/05/2020
+ * 
+ * -> Added ClearAsset function
+ * 
+ * @Version 1.3
+ * @Date 08/05/20
+ * 
+ * -> fixed AddButtons function
+ * -> catched Null-Pointer Reference when no
+ * asset was selected
+ * 
  */
 
 using System.Collections.Generic;
@@ -41,8 +53,11 @@ public class ARSpawner : MonoBehaviour
     public GameObject panel;
 
     private ARRaycastManager rayManager;
-
     private GameObject arAsset;
+    private GameObject currentButton;
+    private bool objectSelected = false;
+
+    private readonly float screenWidth = Screen.width;
     /*
      * Start() method
      * 
@@ -72,16 +87,21 @@ public class ARSpawner : MonoBehaviour
         List<ARRaycastHit> hits = new List<ARRaycastHit>();
         rayManager.Raycast(new Vector2(Screen.width / 2, Screen.height / 2), hits, TrackableType.Planes);
 
-        // hitcheck, if AR plane surface is hit, update position and rotation of the asset
-        if (hits.Count > 0)
+        if (objectSelected == true)
         {
-            arAsset.transform.position = hits[0].pose.position;
-            arAsset.transform.rotation = hits[0].pose.rotation;
-
-            ActivateAsset();
-            
+            if (hits.Count > 0)
+            {
+                ActivateAsset();
+                arAsset.transform.position = hits[0].pose.position;
+                arAsset.transform.rotation = hits[0].pose.rotation;
+            }
+        } else
+        {
+            Debug.Log("No Object Selected");
         }
 
+        // hitcheck, if AR plane surface is hit, update position and rotation of the asset
+        
     }
     /*
      * CreateAndWaitUntilCompleted Task
@@ -106,13 +126,23 @@ public class ARSpawner : MonoBehaviour
      * ClearAsset Method
      * 
      * simple method to clear the given
-     * addressable out of memory.
+     * addressable out of memory and removes
+     * the created button for it.
      * 
      * 
      */
-    private void ClearAsset(GameObject obj)
+    public void ClearAsset()
     {
-        Addressables.Release(obj);
+        if (arAsset == null)
+        {
+            Debug.Log("No AR Asset selected");
+        } else
+        {
+            Addressables.Release(arAsset);
+            Destroy(currentButton.gameObject);
+            objectSelected = false;
+        }
+
     }
     /*
      * ActivateAsset()
@@ -158,6 +188,7 @@ public class ARSpawner : MonoBehaviour
             button.transform.GetChild(0).GetComponent<TextMeshProUGUI>().fontSize = 75;
             button.name = "Button" + i;
             buttonIndex = i;
+            button.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, screenWidth);
             // add button listener a transfer the index and the button object to onClick listener
             button.GetComponent<Button>().onClick.AddListener(() => { OnClick(buttonIndex, button); });
         }
@@ -174,12 +205,14 @@ public class ARSpawner : MonoBehaviour
     private void OnClick(int index, GameObject button)
     {
         Debug.Log("Clicked on Button" + button.name + " with Index: " + index);
+        currentButton = button;
         for (int i = 0; i < Assets.Count; i++)
         {
             if (index == i)
             {
                 arAsset = Assets[i];
                 Debug.Log(arAsset);
+                objectSelected = true;
             }
         }
     }
