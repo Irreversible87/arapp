@@ -33,8 +33,15 @@
  * -> catched Null-Pointer Reference when no
  * asset was selected
  * 
+ * @version 1.4
+ * @Date 10/05/2020
+ * 
+ * -> created a new label based
+ * asset creation system
+ * -> changed ClearAsset() method to
+ * reset the scene.
+ * 
  */
-
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
@@ -43,19 +50,26 @@ using TMPro;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 using UnityEngine.AddressableAssets;
+using System.IO;
+using UnityEngine.SceneManagement;
 
 public class ARSpawner : MonoBehaviour
 {
-    private readonly string _label = "arcontent";
-
     public List<GameObject> Assets { get; } = new List<GameObject>();
     public GameObject buttonPrefab;
-    public GameObject panel;
+    public GameObject libPanel;
+    public GameObject packagePanel;
+    public GameObject libMenu;
+    public GameObject inAppMenu;
 
     private ARRaycastManager rayManager;
     private GameObject arAsset;
     private GameObject currentButton;
     private bool objectSelected = false;
+    private bool assetButtonsAdded = false;
+    private string jsonString;
+    private string selectedLabel;
+    private AssetLabels assetLabels;
 
     private readonly float screenWidth = Screen.width;
     /*
@@ -64,16 +78,14 @@ public class ARSpawner : MonoBehaviour
      * will be executed once the application
      * has started
      */
-    private async void Start()
+    private void Start()
     {
         // get raycaster manager objects
         rayManager = FindObjectOfType<ARRaycastManager>();
 
-        // call and wait for all addressables to load
-        await CreateAndWaitUntilCompleted();
-        AddButtons();
+        // creates asset labels from json file
+        CreateAssetLabels();
     }
-
     /*
      * Update() method
      * 
@@ -87,21 +99,36 @@ public class ARSpawner : MonoBehaviour
         List<ARRaycastHit> hits = new List<ARRaycastHit>();
         rayManager.Raycast(new Vector2(Screen.width / 2, Screen.height / 2), hits, TrackableType.Planes);
 
+        // checks if a object is already selected or not
         if (objectSelected == true)
         {
+            // hitcheck, if AR plane surface is hit, update position and rotation of the asset
             if (hits.Count > 0)
             {
                 ActivateAsset();
                 arAsset.transform.position = hits[0].pose.position;
                 arAsset.transform.rotation = hits[0].pose.rotation;
             }
-        } else
+        }
+        else
         {
             Debug.Log("No Object Selected");
         }
+    }
+    /*
+     * CreateAssetLabel method
+     * 
+     * reads downloaded assetList.json file
+     * and creates an array out it's contents.
+     * 
+     */
+    private void CreateAssetLabels()
+    {
+        string path = Application.persistentDataPath + "/assetList.json";
+        jsonString = File.ReadAllText(path);
+        assetLabels = JsonUtility.FromJson<AssetLabels>(jsonString);
 
-        // hitcheck, if AR plane surface is hit, update position and rotation of the asset
-        
+        AddLabelButtons(assetLabels);
     }
     /*
      * CreateAndWaitUntilCompleted Task
@@ -113,9 +140,9 @@ public class ARSpawner : MonoBehaviour
      * Async task to allow await for all assets to be created
      * 
      */
-    private async Task CreateAndWaitUntilCompleted()
+    private async Task CreateAndWaitUntilCompleted(string label)
     {
-        await CreateAddressablesLoader.InitAsset(_label, Assets);
+        await CreateAddressablesLoader.InitAsset(label, Assets);
 
         foreach (var asset in Assets)
         {
@@ -126,8 +153,8 @@ public class ARSpawner : MonoBehaviour
      * ClearAsset Method
      * 
      * simple method to clear the given
-     * addressable out of memory and removes
-     * the created button for it.
+     * addressable out of memory and resets
+     * the scene.
      * 
      * 
      */
@@ -138,11 +165,9 @@ public class ARSpawner : MonoBehaviour
             Debug.Log("No AR Asset selected");
         } else
         {
-            Addressables.Release(arAsset);
-            Destroy(currentButton.gameObject);
-            objectSelected = false;
+            Addressables.ReleaseInstance(arAsset);
+            Scene scene = SceneManager.GetActiveScene(); SceneManager.LoadScene(scene.name);
         }
-
     }
     /*
      * ActivateAsset()
@@ -165,7 +190,7 @@ public class ARSpawner : MonoBehaviour
         }
     }
     /*
-     * AddButtons()
+     * AddLabelButtons()
      * 
      * Method to instantiate a prefabe button for
      * each addressable asset. The user then can
@@ -173,7 +198,79 @@ public class ARSpawner : MonoBehaviour
      * library menu.
      * 
      */
-    private void AddButtons()
+    private void AddLabelButtons(AssetLabels assetLabels)
+    {
+        // for loop for all adressable assets created
+        for (int i = 0; i < assetLabels.GetLenght(); i++)
+        {
+            // buttonIndex to clearly indentify the button after creation
+            int buttonPIndex;
+            // instance from prefab button
+            GameObject button = Instantiate(buttonPrefab);
+            // create buttons with transfrom to button panel
+            button.transform.SetParent(packagePanel.transform);
+            button.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = assetLabels.label[i];
+            button.transform.GetChild(0).GetComponent<TextMeshProUGUI>().fontSize = 75;
+            button.name = "Button" + i;
+            buttonPIndex = i;
+            button.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, screenWidth);
+            // add button listener a transfer the index and the button object to onClick listener
+            button.GetComponent<Button>().onClick.AddListener(async () => { await OnClickPackageAsync(buttonPIndex); });
+            Debug.Log(buttonPIndex);
+        }
+    }
+    /*
+     * OnClick Event
+     * 
+     * Checks if the button index is the same as
+     * a label in assetLabels object array.
+     * 
+     */
+    private async Task OnClickPackageAsync(int index)
+    {
+        for (int i = 0; i < assetLabels.GetLenght(); i++)
+        {
+            if (index == i)
+            {
+                selectedLabel = assetLabels.label[i];
+                Debug.Log("SELECTED LABEL: " + selectedLabel);
+
+                // checks if a label is selected or not
+                if (selectedLabel == null)
+                {
+                    Debug.Log("No Label selected");
+                }
+                else
+                {
+                    // call and wait for all addressables to load
+                    await CreateAndWaitUntilCompleted(selectedLabel);
+
+                    // checks if buttons already added
+                    if(assetButtonsAdded == false)
+                    {
+                        AddAssetButtons();
+                        assetButtonsAdded = true;
+                    } else
+                    {
+                        Debug.Log("Buttons already created");
+                    }
+                }
+                // switching between the two panels in lib menu
+                packagePanel.SetActive(false);
+                libPanel.SetActive(true);
+            }
+        }
+    }
+    /*
+     * AddAssetButtons()
+     * 
+     * Method to instantiate a prefabe button for
+     * each addressable asset. The user then can
+     * select each addressable asset from within the
+     * library menu.
+     * 
+     */
+    private void AddAssetButtons()
     {
         // for loop for all adressable assets created
         for (int i = 0; i < Assets.Count; i++)
@@ -183,28 +280,26 @@ public class ARSpawner : MonoBehaviour
             // instance from prefab button
             GameObject button = Instantiate(buttonPrefab);
             // create buttons with transfrom to button panel
-            button.transform.SetParent(panel.transform);
+            button.transform.SetParent(libPanel.transform);
             button.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = Assets[i].name;
             button.transform.GetChild(0).GetComponent<TextMeshProUGUI>().fontSize = 75;
             button.name = "Button" + i;
             buttonIndex = i;
             button.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, screenWidth);
             // add button listener a transfer the index and the button object to onClick listener
-            button.GetComponent<Button>().onClick.AddListener(() => { OnClick(buttonIndex, button); });
+            button.GetComponent<Button>().onClick.AddListener(() => { OnClickLib(buttonIndex, button); });
         }
-
     }
     /*
      * OnClick Event
      * 
-     * Checks if the button idex is the same as
+     * Checks if the button index is the same as
      * a asset on Assets list index and sets the AR Asset
      * to this asset from list.
      * 
      */
-    private void OnClick(int index, GameObject button)
+    private void OnClickLib(int index, GameObject button)
     {
-        Debug.Log("Clicked on Button" + button.name + " with Index: " + index);
         currentButton = button;
         for (int i = 0; i < Assets.Count; i++)
         {
@@ -213,6 +308,8 @@ public class ARSpawner : MonoBehaviour
                 arAsset = Assets[i];
                 Debug.Log(arAsset);
                 objectSelected = true;
+                libMenu.SetActive(false);
+                inAppMenu.SetActive(true);
             }
         }
     }
