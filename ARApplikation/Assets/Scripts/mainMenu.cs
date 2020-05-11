@@ -25,12 +25,9 @@ using UnityEngine.SceneManagement;
 public class mainMenu : MonoBehaviour
 {
     private string assetList = "assetList.json";
-    private string buttonList = "nameList.json";
-
     public void Start()
     {
         StartCoroutine(WaitForFile(assetList));
-        StartCoroutine(WaitForFile(buttonList));
     }
     public void StartApp ()
     {

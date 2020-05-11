@@ -26,7 +26,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
-    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -35,7 +35,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
-    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup>
     <NoConfig>true</NoConfig>
@@ -65,7 +65,6 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\ARSpawner.cs" />
     <Compile Include="Assets\Scripts\AssetLabels.cs" />
-    <Compile Include="Assets\Scripts\ButtonLabels.cs" />
     <Compile Include="Assets\Scripts\CreateAddressablesLoader.cs" />
     <Compile Include="Assets\Scripts\JSONReader.cs" />
     <Compile Include="Assets\Scripts\inAppMenu.cs" />
