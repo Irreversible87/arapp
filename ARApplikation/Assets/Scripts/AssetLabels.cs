@@ -16,7 +16,6 @@
 public class AssetLabels
 {
     public string[] label;
-
     /*
      * GetLenght() method
      * 
@@ -24,7 +23,7 @@ public class AssetLabels
      * JSON string.
      * 
      */
-    public int GetLenght()
+    public int GetLabelLenght()
     {
         return label.Length;
     }

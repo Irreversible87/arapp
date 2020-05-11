@@ -65,7 +65,9 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\ARSpawner.cs" />
     <Compile Include="Assets\Scripts\AssetLabels.cs" />
+    <Compile Include="Assets\Scripts\ButtonLabels.cs" />
     <Compile Include="Assets\Scripts\CreateAddressablesLoader.cs" />
+    <Compile Include="Assets\Scripts\JSONReader.cs" />
     <Compile Include="Assets\Scripts\inAppMenu.cs" />
     <Compile Include="Assets\Scripts\mainMenu.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
@@ -659,92 +661,92 @@
     <Reference Include="Boo.Lang">
       <HintPath>C:/Program Files/Unity Engine/2019.3.13f1/Editor/Data/MonoBleedingEdge/lib/mono/unityscript/Boo.Lang.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.XR.Management">
+      <HintPath>D:/Dokumente/FH Emden Leer/2016 - Medientechnik/Bachelor Arbeit/ARApp/arapp/ARApplikation/Library/ScriptAssemblies/Unity.XR.Management.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Timeline.Editor">
-      <HintPath>D:/Dokumente/FH Emden Leer/2016 - Medientechnik/Bachelor Arbeit/ARApp/arappFixed/ARApplikation/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VSCode.Editor">
-      <HintPath>D:/Dokumente/FH Emden Leer/2016 - Medientechnik/Bachelor Arbeit/ARApp/arappFixed/ARApplikation/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>D:/Dokumente/FH Emden Leer/2016 - Medientechnik/Bachelor Arbeit/ARApp/arappFixed/ARApplikation/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>D:/Dokumente/FH Emden Leer/2016 - Medientechnik/Bachelor Arbeit/ARApp/arappFixed/ARApplikation/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Timeline">
-      <HintPath>D:/Dokumente/FH Emden Leer/2016 - Medientechnik/Bachelor Arbeit/ARApp/arappFixed/ARApplikation/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>D:/Dokumente/FH Emden Leer/2016 - Medientechnik/Bachelor Arbeit/ARApp/arappFixed/ARApplikation/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Rider.Editor">
-      <HintPath>D:/Dokumente/FH Emden Leer/2016 - Medientechnik/Bachelor Arbeit/ARApp/arappFixed/ARApplikation/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.TextMeshPro">
-      <HintPath>D:/Dokumente/FH Emden Leer/2016 - Medientechnik/Bachelor Arbeit/ARApp/arappFixed/ARApplikation/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.UI">
-      <HintPath>D:/Dokumente/FH Emden Leer/2016 - Medientechnik/Bachelor Arbeit/ARApp/arappFixed/ARApplikation/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>D:/Dokumente/FH Emden Leer/2016 - Medientechnik/Bachelor Arbeit/ARApp/arapp/ARApplikation/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.CacheServer">
-      <HintPath>D:/Dokumente/FH Emden Leer/2016 - Medientechnik/Bachelor Arbeit/ARApp/arappFixed/ARApplikation/Library/ScriptAssemblies/UnityEditor.CacheServer.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.ScriptableBuildPipeline.Editor">
-      <HintPath>D:/Dokumente/FH Emden Leer/2016 - Medientechnik/Bachelor Arbeit/ARApp/arappFixed/ARApplikation/Library/ScriptAssemblies/Unity.ScriptableBuildPipeline.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.ResourceManager">
-      <HintPath>D:/Dokumente/FH Emden Leer/2016 - Medientechnik/Bachelor Arbeit/ARApp/arappFixed/ARApplikation/Library/ScriptAssemblies/Unity.ResourceManager.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Addressables.Editor">
-      <HintPath>D:/Dokumente/FH Emden Leer/2016 - Medientechnik/Bachelor Arbeit/ARApp/arappFixed/ARApplikation/Library/ScriptAssemblies/Unity.Addressables.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Addressables">
-      <HintPath>D:/Dokumente/FH Emden Leer/2016 - Medientechnik/Bachelor Arbeit/ARApp/arappFixed/ARApplikation/Library/ScriptAssemblies/Unity.Addressables.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.ScriptableBuildPipeline">
-      <HintPath>D:/Dokumente/FH Emden Leer/2016 - Medientechnik/Bachelor Arbeit/ARApp/arappFixed/ARApplikation/Library/ScriptAssemblies/Unity.ScriptableBuildPipeline.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Mobile.AndroidLogcat.Editor">
-      <HintPath>D:/Dokumente/FH Emden Leer/2016 - Medientechnik/Bachelor Arbeit/ARApp/arappFixed/ARApplikation/Library/ScriptAssemblies/Unity.Mobile.AndroidLogcat.Editor.dll</HintPath>
+      <HintPath>D:/Dokumente/FH Emden Leer/2016 - Medientechnik/Bachelor Arbeit/ARApp/arapp/ARApplikation/Library/ScriptAssemblies/UnityEditor.CacheServer.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Subsystem.Registration">
-      <HintPath>D:/Dokumente/FH Emden Leer/2016 - Medientechnik/Bachelor Arbeit/ARApp/arappFixed/ARApplikation/Library/ScriptAssemblies/Unity.Subsystem.Registration.dll</HintPath>
+      <HintPath>D:/Dokumente/FH Emden Leer/2016 - Medientechnik/Bachelor Arbeit/ARApp/arapp/ARApplikation/Library/ScriptAssemblies/Unity.Subsystem.Registration.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ScriptableBuildPipeline.Editor">
+      <HintPath>D:/Dokumente/FH Emden Leer/2016 - Medientechnik/Bachelor Arbeit/ARApp/arapp/ARApplikation/Library/ScriptAssemblies/Unity.ScriptableBuildPipeline.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VSCode.Editor">
+      <HintPath>D:/Dokumente/FH Emden Leer/2016 - Medientechnik/Bachelor Arbeit/ARApp/arapp/ARApplikation/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.XR.ARSubsystems">
-      <HintPath>D:/Dokumente/FH Emden Leer/2016 - Medientechnik/Bachelor Arbeit/ARApp/arappFixed/ARApplikation/Library/ScriptAssemblies/Unity.XR.ARSubsystems.dll</HintPath>
+      <HintPath>D:/Dokumente/FH Emden Leer/2016 - Medientechnik/Bachelor Arbeit/ARApp/arapp/ARApplikation/Library/ScriptAssemblies/Unity.XR.ARSubsystems.dll</HintPath>
     </Reference>
     <Reference Include="Unity.XR.ARSubsystems.Editor">
-      <HintPath>D:/Dokumente/FH Emden Leer/2016 - Medientechnik/Bachelor Arbeit/ARApp/arappFixed/ARApplikation/Library/ScriptAssemblies/Unity.XR.ARSubsystems.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.XR.ARFoundation.Editor">
-      <HintPath>D:/Dokumente/FH Emden Leer/2016 - Medientechnik/Bachelor Arbeit/ARApp/arappFixed/ARApplikation/Library/ScriptAssemblies/Unity.XR.ARFoundation.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.XR.ARFoundation">
-      <HintPath>D:/Dokumente/FH Emden Leer/2016 - Medientechnik/Bachelor Arbeit/ARApp/arappFixed/ARApplikation/Library/ScriptAssemblies/Unity.XR.ARFoundation.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.XR.Management">
-      <HintPath>D:/Dokumente/FH Emden Leer/2016 - Medientechnik/Bachelor Arbeit/ARApp/arappFixed/ARApplikation/Library/ScriptAssemblies/Unity.XR.Management.dll</HintPath>
+      <HintPath>D:/Dokumente/FH Emden Leer/2016 - Medientechnik/Bachelor Arbeit/ARApp/arapp/ARApplikation/Library/ScriptAssemblies/Unity.XR.ARSubsystems.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.XR.ARCore">
-      <HintPath>D:/Dokumente/FH Emden Leer/2016 - Medientechnik/Bachelor Arbeit/ARApp/arappFixed/ARApplikation/Library/ScriptAssemblies/Unity.XR.ARCore.dll</HintPath>
+      <HintPath>D:/Dokumente/FH Emden Leer/2016 - Medientechnik/Bachelor Arbeit/ARApp/arapp/ARApplikation/Library/ScriptAssemblies/Unity.XR.ARCore.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.XR.ARFoundation.Editor">
+      <HintPath>D:/Dokumente/FH Emden Leer/2016 - Medientechnik/Bachelor Arbeit/ARApp/arapp/ARApplikation/Library/ScriptAssemblies/Unity.XR.ARFoundation.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro.Editor">
+      <HintPath>D:/Dokumente/FH Emden Leer/2016 - Medientechnik/Bachelor Arbeit/ARApp/arapp/ARApplikation/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ResourceManager">
+      <HintPath>D:/Dokumente/FH Emden Leer/2016 - Medientechnik/Bachelor Arbeit/ARApp/arapp/ARApplikation/Library/ScriptAssemblies/Unity.ResourceManager.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.XR.ARFoundation">
+      <HintPath>D:/Dokumente/FH Emden Leer/2016 - Medientechnik/Bachelor Arbeit/ARApp/arapp/ARApplikation/Library/ScriptAssemblies/Unity.XR.ARFoundation.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>D:/Dokumente/FH Emden Leer/2016 - Medientechnik/Bachelor Arbeit/ARApp/arapp/ARApplikation/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.XR.ARCore.Editor">
-      <HintPath>D:/Dokumente/FH Emden Leer/2016 - Medientechnik/Bachelor Arbeit/ARApp/arappFixed/ARApplikation/Library/ScriptAssemblies/Unity.XR.ARCore.Editor.dll</HintPath>
+      <HintPath>D:/Dokumente/FH Emden Leer/2016 - Medientechnik/Bachelor Arbeit/ARApp/arapp/ARApplikation/Library/ScriptAssemblies/Unity.XR.ARCore.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Timeline">
+      <HintPath>D:/Dokumente/FH Emden Leer/2016 - Medientechnik/Bachelor Arbeit/ARApp/arapp/ARApplikation/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Addressables.Editor">
+      <HintPath>D:/Dokumente/FH Emden Leer/2016 - Medientechnik/Bachelor Arbeit/ARApp/arapp/ARApplikation/Library/ScriptAssemblies/Unity.Addressables.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.CollabProxy.Editor">
+      <HintPath>D:/Dokumente/FH Emden Leer/2016 - Medientechnik/Bachelor Arbeit/ARApp/arapp/ARApplikation/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.XR.LegacyInputHelpers">
-      <HintPath>D:/Dokumente/FH Emden Leer/2016 - Medientechnik/Bachelor Arbeit/ARApp/arappFixed/ARApplikation/Library/ScriptAssemblies/UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
+      <HintPath>D:/Dokumente/FH Emden Leer/2016 - Medientechnik/Bachelor Arbeit/ARApp/arapp/ARApplikation/Library/ScriptAssemblies/UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
     </Reference>
     <Reference Include="Unity.XR.Management.Editor">
-      <HintPath>D:/Dokumente/FH Emden Leer/2016 - Medientechnik/Bachelor Arbeit/ARApp/arappFixed/ARApplikation/Library/ScriptAssemblies/Unity.XR.Management.Editor.dll</HintPath>
+      <HintPath>D:/Dokumente/FH Emden Leer/2016 - Medientechnik/Bachelor Arbeit/ARApp/arapp/ARApplikation/Library/ScriptAssemblies/Unity.XR.Management.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Rider.Editor">
+      <HintPath>D:/Dokumente/FH Emden Leer/2016 - Medientechnik/Bachelor Arbeit/ARApp/arapp/ARApplikation/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Mobile.AndroidLogcat.Editor">
+      <HintPath>D:/Dokumente/FH Emden Leer/2016 - Medientechnik/Bachelor Arbeit/ARApp/arapp/ARApplikation/Library/ScriptAssemblies/Unity.Mobile.AndroidLogcat.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.SpatialTracking">
-      <HintPath>D:/Dokumente/FH Emden Leer/2016 - Medientechnik/Bachelor Arbeit/ARApp/arappFixed/ARApplikation/Library/ScriptAssemblies/UnityEditor.SpatialTracking.dll</HintPath>
+      <HintPath>D:/Dokumente/FH Emden Leer/2016 - Medientechnik/Bachelor Arbeit/ARApp/arapp/ARApplikation/Library/ScriptAssemblies/UnityEditor.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.SpatialTracking">
-      <HintPath>D:/Dokumente/FH Emden Leer/2016 - Medientechnik/Bachelor Arbeit/ARApp/arappFixed/ARApplikation/Library/ScriptAssemblies/UnityEngine.SpatialTracking.dll</HintPath>
+      <HintPath>D:/Dokumente/FH Emden Leer/2016 - Medientechnik/Bachelor Arbeit/ARApp/arapp/ARApplikation/Library/ScriptAssemblies/UnityEngine.SpatialTracking.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Addressables">
+      <HintPath>D:/Dokumente/FH Emden Leer/2016 - Medientechnik/Bachelor Arbeit/ARApp/arapp/ARApplikation/Library/ScriptAssemblies/Unity.Addressables.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ScriptableBuildPipeline">
+      <HintPath>D:/Dokumente/FH Emden Leer/2016 - Medientechnik/Bachelor Arbeit/ARApp/arapp/ARApplikation/Library/ScriptAssemblies/Unity.ScriptableBuildPipeline.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>D:/Dokumente/FH Emden Leer/2016 - Medientechnik/Bachelor Arbeit/ARApp/arapp/ARApplikation/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.XR.LegacyInputHelpers">
-      <HintPath>D:/Dokumente/FH Emden Leer/2016 - Medientechnik/Bachelor Arbeit/ARApp/arappFixed/ARApplikation/Library/ScriptAssemblies/UnityEditor.XR.LegacyInputHelpers.dll</HintPath>
+      <HintPath>D:/Dokumente/FH Emden Leer/2016 - Medientechnik/Bachelor Arbeit/ARApp/arapp/ARApplikation/Library/ScriptAssemblies/UnityEditor.XR.LegacyInputHelpers.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.UI">
+      <HintPath>D:/Dokumente/FH Emden Leer/2016 - Medientechnik/Bachelor Arbeit/ARApp/arapp/ARApplikation/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup></ItemGroup>

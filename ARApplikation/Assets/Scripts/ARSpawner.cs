@@ -66,10 +66,11 @@ public class ARSpawner : MonoBehaviour
     private GameObject arAsset;
     private GameObject currentButton;
     private bool objectSelected = false;
-    private bool assetButtonsAdded = false;
-    private string jsonString;
     private string selectedLabel;
     private AssetLabels assetLabels;
+    private ButtonLabels buttonLabels;
+    private List<string> loadedGroups = new List<string>();
+
 
     private readonly float screenWidth = Screen.width;
     /*
@@ -84,7 +85,11 @@ public class ARSpawner : MonoBehaviour
         rayManager = FindObjectOfType<ARRaycastManager>();
 
         // creates asset labels from json file
-        CreateAssetLabels();
+        assetLabels = JSONReader.ReadAssetLabel(assetLabels);
+        AddLabelButtons(assetLabels);
+        buttonLabels = JSONReader.ReadButtonLabel(buttonLabels);
+        
+
     }
     /*
      * Update() method
@@ -114,21 +119,6 @@ public class ARSpawner : MonoBehaviour
         {
             Debug.Log("No Object Selected");
         }
-    }
-    /*
-     * CreateAssetLabel method
-     * 
-     * reads downloaded assetList.json file
-     * and creates an array out it's contents.
-     * 
-     */
-    private void CreateAssetLabels()
-    {
-        string path = Application.persistentDataPath + "/assetList.json";
-        jsonString = File.ReadAllText(path);
-        assetLabels = JsonUtility.FromJson<AssetLabels>(jsonString);
-
-        AddLabelButtons(assetLabels);
     }
     /*
      * CreateAndWaitUntilCompleted Task
@@ -163,7 +153,8 @@ public class ARSpawner : MonoBehaviour
         if (arAsset == null)
         {
             Debug.Log("No AR Asset selected");
-        } else
+        }
+        else
         {
             Addressables.ReleaseInstance(arAsset);
             Scene scene = SceneManager.GetActiveScene(); SceneManager.LoadScene(scene.name);
@@ -201,7 +192,7 @@ public class ARSpawner : MonoBehaviour
     private void AddLabelButtons(AssetLabels assetLabels)
     {
         // for loop for all adressable assets created
-        for (int i = 0; i < assetLabels.GetLenght(); i++)
+        for (int i = 0; i < assetLabels.GetLabelLenght(); i++)
         {
             // buttonIndex to clearly indentify the button after creation
             int buttonPIndex;
@@ -228,7 +219,7 @@ public class ARSpawner : MonoBehaviour
      */
     private async Task OnClickPackageAsync(int index)
     {
-        for (int i = 0; i < assetLabels.GetLenght(); i++)
+        for (int i = 0; i < assetLabels.GetLabelLenght(); i++)
         {
             if (index == i)
             {
@@ -240,24 +231,20 @@ public class ARSpawner : MonoBehaviour
                 {
                     Debug.Log("No Label selected");
                 }
+                else if (loadedGroups.Contains(selectedLabel))
+                {
+                    Debug.Log("Group already created");
+                }
                 else
                 {
                     // call and wait for all addressables to load
                     await CreateAndWaitUntilCompleted(selectedLabel);
-
-                    // checks if buttons already added
-                    if(assetButtonsAdded == false)
-                    {
-                        AddAssetButtons();
-                        assetButtonsAdded = true;
-                    } else
-                    {
-                        Debug.Log("Buttons already created");
-                    }
+                    AddAssetButtons();
                 }
                 // switching between the two panels in lib menu
                 packagePanel.SetActive(false);
                 libPanel.SetActive(true);
+                loadedGroups.Add(selectedLabel);
             }
         }
     }
@@ -272,11 +259,11 @@ public class ARSpawner : MonoBehaviour
      */
     private void AddAssetButtons()
     {
+        // buttonIndex to clearly indentify the button after creation
+        int buttonIndex;
         // for loop for all adressable assets created
         for (int i = 0; i < Assets.Count; i++)
         {
-            // buttonIndex to clearly indentify the button after creation
-            int buttonIndex;
             // instance from prefab button
             GameObject button = Instantiate(buttonPrefab);
             // create buttons with transfrom to button panel

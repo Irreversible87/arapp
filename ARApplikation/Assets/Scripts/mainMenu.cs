@@ -24,11 +24,13 @@ using UnityEngine.SceneManagement;
 
 public class mainMenu : MonoBehaviour
 {
-    private string file_name = "assetList.json";
+    private string assetList = "assetList.json";
+    private string buttonList = "nameList.json";
 
     public void Start()
     {
-        StartCoroutine(WaitForAssetList(file_name));
+        StartCoroutine(WaitForFile(assetList));
+        StartCoroutine(WaitForFile(buttonList));
     }
     public void StartApp ()
     {
@@ -37,14 +39,14 @@ public class mainMenu : MonoBehaviour
     }
 
     /*
-     * IENumerator WaitForAssetList
+     * IENumerator WaitForFile
      * 
      * simple coroutine to download a assetList json file
      * which contains all available addressable asset package
      * labels
      * 
      */
-    IEnumerator WaitForAssetList(string file_name)
+    IEnumerator WaitForFile(string file_name)
     {
         var uri = string.Concat("https://www.lars-pastoor.de/public/", file_name);
         using (var webRequest = UnityWebRequest.Get(uri))
@@ -63,7 +65,15 @@ public class mainMenu : MonoBehaviour
 
                 File.WriteAllText(savePath, webRequest.downloadHandler.text);
                 while (!webRequest.downloadHandler.isDone)
+                {
+                    Debug.Log("Downloading");
                     yield return new WaitForEndOfFrame();
+                }
+                if (webRequest.downloadHandler.isDone)
+                {
+                    Debug.Log("Finished downloading");
+                }
+                    
             }
         }
     }
