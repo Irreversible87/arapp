@@ -18,7 +18,7 @@ using UnityEngine.SceneManagement;
 public class inAppMenu : MonoBehaviour
 {
     // init pause menu game object
-    public GameObject pauseMenuUI;
+    public UnityEngine.GameObject pauseMenuUI;
     /*
     * Method to return into the main
     * menu via the application pause menu

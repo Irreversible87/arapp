@@ -46,11 +46,8 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
-using UnityEngine.AddressableAssets;
-using UnityEngine.SceneManagement;
 
 public class ARSpawner : MonoBehaviour
 {
@@ -65,9 +62,9 @@ public class ARSpawner : MonoBehaviour
     private ARRaycastManager rayManager;
     private GameObject arAsset;
     private bool objectSelected = false;
+    private bool labelButtonsInitiated = false;
     private string selectedLabel;
     private AssetLabels assetLabels;
-    private List<string> loadedGroups = new List<string>();
     /*
      * Start() method
      * 
@@ -78,10 +75,12 @@ public class ARSpawner : MonoBehaviour
     {
         // get raycaster manager objects
         rayManager = FindObjectOfType<ARRaycastManager>();
-
         // creates asset labels from json file
-        assetLabels = JSONReader.ReadAssetLabel(assetLabels);
-        AddLabelButtons(assetLabels);
+        assetLabels = JSONReader.ReadAssetLabel();
+        
+
+        ButtonManager.CreateButtons(assetLabels, Assets, buttonPrefab, packagePanel, libPanel);
+        InitButtons();
     }
     /*
      * Update() method
@@ -177,32 +176,40 @@ public class ARSpawner : MonoBehaviour
         }
     }
     /*
-     * AddLabelButtons()
+     * InitButtons() method
      * 
-     * Method to instantiate a prefabe button for
-     * each addressable asset. The user then can
-     * select each addressable asset from within the
-     * library menu.
+     * Adds event handler to created buttons
+     * and sets created buttons active in hierachy
      * 
      */
-    private void AddLabelButtons(AssetLabels assetLabels)
+    private void InitButtons()
     {
-        // for loop for all adressable assets created
-        for (int i = 0; i < assetLabels.GetLabelLenght(); i++)
+        if (labelButtonsInitiated == false)
         {
-            // buttonIndex to clearly indentify the button after creation
-            int buttonIndex;
-            // instance from prefab button
-            GameObject button = Instantiate(buttonPrefab);
-            // create buttons with transfrom to button panel
-            button.transform.SetParent(packagePanel.transform);
-            button.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = assetLabels.label[i];
-            button.transform.GetChild(0).GetComponent<TextMeshProUGUI>().fontSize = 75;
-            button.name = "Button" + i;
-            buttonIndex = i;
-            button.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, Screen.width);
-            // add button listener a transfer the index and the button object to onClick listener
-            button.GetComponent<Button>().onClick.AddListener(async () => { await OnClickPackageAsync(buttonIndex); });
+            List<GameObject> CreatedLabelButtons = new List<GameObject>();
+            CreatedLabelButtons = ButtonManager.GetCreatedLabelButtons();
+
+            for (int i = 0; i < CreatedLabelButtons.Count; i++)
+            {
+                int buttonIndex = i;
+                CreatedLabelButtons[i].GetComponent<Button>().
+                    onClick.AddListener(async () => { await OnClickPackageAsync(buttonIndex); });
+                CreatedLabelButtons[i].SetActive(true);
+            }
+            labelButtonsInitiated = true;
+        }
+        else if (labelButtonsInitiated == true)
+        {
+            List<GameObject> CreatedAssetButtons = new List<GameObject>();
+            CreatedAssetButtons = ButtonManager.GetCreatedAssetButtons();
+
+            for (int i = 0; i < CreatedAssetButtons.Count; i++)
+            {
+                int buttonIndex = i;
+                CreatedAssetButtons[i].GetComponent<Button>().
+                    onClick.AddListener(() => { OnClickLib(buttonIndex); });
+                CreatedAssetButtons[i].SetActive(true);
+            }
         }
     }
     /*
@@ -215,6 +222,7 @@ public class ARSpawner : MonoBehaviour
     private async Task OnClickPackageAsync(int index)
     {
         objectSelected = false;
+
         for (int i = 0; i < assetLabels.GetLabelLenght(); i++)
         {
             if (index == i)
@@ -227,15 +235,8 @@ public class ARSpawner : MonoBehaviour
                 {
                     Debug.Log("No Label selected");
                 }
-                else if (loadedGroups.Contains(selectedLabel))
-                {
-                    Debug.Log("Group already created");
-                }
                 else
                 {
-                    loadedGroups.Clear();
-                    killButtons(libPanel);
-                    Assets.Clear();
                     // wait for addressables to load
                     bool loaded = false;
                     while (loaded == false)
@@ -245,54 +246,14 @@ public class ARSpawner : MonoBehaviour
                         await CreateAndWaitUntilCompleted(selectedLabel);
                         loaded = true;
                     }
+                    ButtonManager.CreateButtons(assetLabels, Assets, buttonPrefab, packagePanel, libPanel);
+                    InitButtons();
                     loadScreen.SetActive(false);
-                    AddAssetButtons();
                 }
                 // switching between the two panels in lib menu
                 packagePanel.SetActive(false);
-                libPanel.SetActive(true);
-                loadedGroups.Add(selectedLabel);
+                libPanel.SetActive(true);  
             }
-        }
-    }
-
-    private void killButtons(GameObject libPanel)
-    {
-        Transform panelTransform = libPanel.transform;
-        foreach (Transform child in panelTransform)
-        {
-            Destroy(child.gameObject);
-            Debug.Log("kill");
-        }
-    }
-    /*
-     * AddAssetButtons()
-     * 
-     * Method to instantiate a prefabe button for
-     * each addressable asset. The user then can
-     * select each addressable asset from within the
-     * library menu.
-     * 
-     */
-    private void AddAssetButtons()
-    {
-        
-        // for loop for all adressable assets created
-        for (int i = 0; i < Assets.Count; i++)
-        {
-            // buttonIndex to clearly indentify the button after creation
-            int buttonIndex;
-            // instance from prefab button
-            GameObject button = Instantiate(buttonPrefab);
-            // create buttons with transfrom to button panel
-            button.transform.SetParent(libPanel.transform);
-            button.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = Assets[i].name;
-            button.transform.GetChild(0).GetComponent<TextMeshProUGUI>().fontSize = 75;
-            button.name = "Button" + i;
-            buttonIndex = i;
-            button.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, Screen.width);
-            // add button listener a transfer the index and the button object to onClick listener
-            button.GetComponent<Button>().onClick.AddListener(() => { OnClickLib(buttonIndex); });
         }
     }
     /*
@@ -317,4 +278,13 @@ public class ARSpawner : MonoBehaviour
             }
         }
     }
+    //private void KillButtons()
+    //{
+        //Transform transformPanel = libPanel.transform;
+        //foreach (Transform child in transformPanel)
+        //{
+            //ButtonManager.ClearAssetButtons();
+            //Destroy(child.gameObject);
+        //}
+    //}
 }

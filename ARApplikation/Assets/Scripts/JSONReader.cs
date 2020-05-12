@@ -27,11 +27,11 @@ public static class JSONReader
      * (string).
      * 
      */
-    public static AssetLabels ReadAssetLabel(AssetLabels assetLabel)
+    public static AssetLabels ReadAssetLabel()
     {
         string path = Application.persistentDataPath + "/assetList.json";
         string jsonString = File.ReadAllText(path);
-        assetLabel = JsonUtility.FromJson<AssetLabels>(jsonString);
+        AssetLabels assetLabel = JsonUtility.FromJson<AssetLabels>(jsonString);
         return assetLabel;
     }
 }
