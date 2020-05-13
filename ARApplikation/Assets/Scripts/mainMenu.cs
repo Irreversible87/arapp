@@ -4,32 +4,32 @@
  * Simple script that invokes the main menu scene
  * at the start of the application.
  * 
- * @Author Lars Pastoor
- * @Date 20/04/2020
+ * @Author: Lars Pastoor
+ * @Version: 1.0
+ * @Date: 20/04/2020
  * 
- * @Version 1.0
- * --- init
+ * -> init
  * 
- * @Version 1.1
- * @Date 10/05/2020
+ * @Version: 1.1
+ * @Date: 10/05/2020
  * 
  * -> added download routine for asset list
  */
-
 using System.Collections;
 using System.IO;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 
-public class mainMenu : MonoBehaviour
+public class MainMenu : MonoBehaviour
 {
     private string assetList = "assetList.json";
-    public void Start()
+
+    private void Awake()
     {
         StartCoroutine(WaitForFile(assetList));
     }
-    public void StartApp ()
+    public void StartApp()
     {
         // Scenemanger loads the ar main scene with buildIndex 1
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
@@ -45,7 +45,7 @@ public class mainMenu : MonoBehaviour
      */
     IEnumerator WaitForFile(string file_name)
     {
-        var uri = string.Concat("https://www.lars-pastoor.de/public/", file_name);
+        var uri = string.Concat("https://www.lars-pastoor.de/public/", file_name); // uri must be changed for different server!
         using (var webRequest = UnityWebRequest.Get(uri))
         {
             yield return webRequest.SendWebRequest();
@@ -70,7 +70,6 @@ public class mainMenu : MonoBehaviour
                 {
                     Debug.Log("Finished downloading");
                 }
-                    
             }
         }
     }

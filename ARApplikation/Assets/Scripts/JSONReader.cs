@@ -7,8 +7,6 @@
  * to a AssetLabels Object
  * 
  * @Author Lars Pastoor
- * @E-Mail lars.pastoor87@gmail.com
- * 
  * @Version 1.0
  * @Date 11/05/2020
  * 
@@ -20,7 +18,7 @@ using UnityEngine;
 public static class JSONReader
 {
     /*
-     * ReadAssetLabel method
+     * ReadAssetLabel() method
      * 
      * reads in json file from persistantDataPath
      * an parses it in AssetLabels assetLabel Object

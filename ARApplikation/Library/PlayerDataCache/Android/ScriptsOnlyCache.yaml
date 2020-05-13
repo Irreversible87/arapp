@@ -2,8 +2,8 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - ARSpawner
-    - inAppMenu
-    - mainMenu
+    - InAppMenu
+    - MainMenu
     Unity.Addressables.Editor.dll:
     - UnityEditor.AddressableAssets.AddressableAssetSettingsDefaultObject
     - UnityEditor.AddressableAssets.Build.DataBuilders.BuildScriptFastMode
@@ -20,9 +20,6 @@ ScriptsOnlyBuild:
     Unity.Mobile.AndroidLogcat.Editor.dll:
     - Unity.Android.Logcat.AndroidLogcatConsoleWindow
     - Unity.Android.Logcat.AndroidLogcatManager
-    Unity.ResourceManager.dll:
-    - UnityEngine.ResourceManagement.Diagnostics.DiagnosticEventCollector
-    - UnityEngine.ResourceManagement.Util.DelayedActionManager
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
     Unity.TextMeshPro.dll:
@@ -77,29 +74,29 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11196}
+      Script: {instanceID: 11194}
     - Class: 114
-      Script: {instanceID: 11214}
+      Script: {instanceID: 11212}
     - Class: 114
-      Script: {instanceID: 11472}
+      Script: {instanceID: 11470}
     - Class: 114
-      Script: {instanceID: 11530}
+      Script: {instanceID: 11528}
     - Class: 114
-      Script: {instanceID: 11590}
+      Script: {instanceID: 11588}
     - Class: 114
-      Script: {instanceID: 11630}
+      Script: {instanceID: 11628}
     - Class: 114
-      Script: {instanceID: 11708}
+      Script: {instanceID: 11706}
     - Class: 114
-      Script: {instanceID: 11790}
+      Script: {instanceID: 11788}
     - Class: 114
-      Script: {instanceID: 12172}
+      Script: {instanceID: 12170}
     - Class: 114
-      Script: {instanceID: 12304}
+      Script: {instanceID: 12302}
     - Class: 114
-      Script: {instanceID: 12874}
+      Script: {instanceID: 12872}
     - Class: 114
-      Script: {instanceID: 13020}
+      Script: {instanceID: 13018}
     - Class: 114
       Script: {instanceID: 13226}
     - Class: 114
@@ -117,9 +114,9 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13966}
     - Class: 114
-      Script: {instanceID: 14146}
+      Script: {instanceID: 14144}
     - Class: 114
-      Script: {instanceID: 14290}
+      Script: {instanceID: 14288}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -160,19 +157,19 @@ ScriptsOnlyBuild:
     - Class: 109
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11196}
+      Script: {instanceID: 11194}
     - Class: 114
-      Script: {instanceID: 11530}
+      Script: {instanceID: 11528}
     - Class: 114
-      Script: {instanceID: 11708}
+      Script: {instanceID: 11706}
     - Class: 114
-      Script: {instanceID: 12172}
+      Script: {instanceID: 12170}
     - Class: 114
-      Script: {instanceID: 12224}
+      Script: {instanceID: 12222}
     - Class: 114
-      Script: {instanceID: 12874}
+      Script: {instanceID: 12872}
     - Class: 114
-      Script: {instanceID: 13020}
+      Script: {instanceID: 13018}
     - Class: 114
       Script: {instanceID: 13244}
     - Class: 114
@@ -184,9 +181,9 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13946}
     - Class: 114
-      Script: {instanceID: 14116}
+      Script: {instanceID: 14114}
     - Class: 114
-      Script: {instanceID: 14290}
+      Script: {instanceID: 14288}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -329,7 +326,7 @@ ScriptsOnlyBuild:
       Hash: c8c5e65e9fb858572516474d6e2102bc
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: inAppMenu
+    className: InAppMenu
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -833,7 +830,7 @@ ScriptsOnlyBuild:
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: mainMenu
+    className: MainMenu
   - hash:
       serializedVersion: 2
       Hash: ae83e830e7a90c0aff918c4c2e520825
@@ -1090,4 +1087,4 @@ ScriptsOnlyBuild:
   scenePathNames:
   - Assets/Scenes/mainmenu.unity
   - Assets/Scenes/armain.unity
-  playerPath: D:/Dokumente/FH Emden Leer/2016 - Medientechnik/Bachelor Arbeit/ARApplication.apk
+  playerPath: D:/Dokumente/FH Emden Leer/2016 - Medientechnik/Bachelor Arbeit/ARCloudClient.apk

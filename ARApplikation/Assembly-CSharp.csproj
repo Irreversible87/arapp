@@ -67,9 +67,9 @@
     <Compile Include="Assets\Scripts\AssetLabels.cs" />
     <Compile Include="Assets\Scripts\ButtonManager.cs" />
     <Compile Include="Assets\Scripts\CreateAddressablesLoader.cs" />
+    <Compile Include="Assets\Scripts\InAppMenu.cs" />
     <Compile Include="Assets\Scripts\JSONReader.cs" />
-    <Compile Include="Assets\Scripts\inAppMenu.cs" />
-    <Compile Include="Assets\Scripts\mainMenu.cs" />
+    <Compile Include="Assets\Scripts\MainMenu.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />

@@ -6,13 +6,14 @@
  * addressable asset system code based on https://medium.com/@badgerdox
  * created by
  * 
- * @Autho: Badger Dox
+ * @Author: Lars Pastoor
  * @Version: 1.0
- * @Date: 2019
+ * @Date 29/04/2020
+ * 
+ * -> init
  * 
  * @Version: 1.1
- * @Date 12/05/2020
- * @Author: Lars Pastoor
+ * @Date: 12/05/2020
  * 
  * -> created check if a label
  * was already called.
@@ -29,7 +30,7 @@ public static class CreateAddressablesLoader
 
 
 /*
-* Init Asset Task
+* InitAsset() task
 * 
 * Task to load addressable assets via label and
 * instantiate after loading
@@ -38,7 +39,6 @@ public static class CreateAddressablesLoader
     public static async Task InitAsset<T>(string assetLabel, List<T> createdObjs)
         where T : Object
     {
-
         // checks if a label was already called
         if (CalledLabels.Contains(assetLabel))
         {
