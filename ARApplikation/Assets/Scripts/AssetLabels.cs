@@ -5,10 +5,8 @@
  * with a given string and getLenght method.
  * 
  * @Author Lars Pastoor
- * @E-Mail lars.pastoor87@gmail.com
- * 
- * @Version 1.0
- * @Date 10/05/2020
+ * @Version: 1.0
+ * @Date: 10/05/2020
  * 
  * 
  */

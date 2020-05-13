@@ -1,33 +1,32 @@
 ﻿/*
- * PauseMenu script
+ * InAppMenu class
  * 
- * simple script that implements a application pause menu
+ * simple class that implements a application pause menu
  * to navigate through the menus from within the running 
- * application
+ * application.
  * 
- * @Author Lars Pastoor
- * @Date 22/04/2020
+ * @Author: Lars Pastoor
+ * @Version: 1.0
+ * @Date: 22/04/2020
  * 
- * @Version 1.0
- * --- init
+ * -> init
  */
-
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class inAppMenu : MonoBehaviour
+public class InAppMenu : MonoBehaviour
 {
     // init pause menu game object
     public GameObject pauseMenuUI;
     /*
-    * Method to return into the main
-    * menu via the application pause menu
-    * 
-    * @return void
-    * 
-    */
+     * LoadMenu() method
+     * 
+     * method to return into the main
+     * menu via the application pause
+     * menu.
+     */
     public void LoadMenu()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex - 1);
     }
 }
