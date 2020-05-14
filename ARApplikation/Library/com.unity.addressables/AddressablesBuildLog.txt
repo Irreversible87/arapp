@@ -1,2 +1,51 @@
 Warning: The formatting in this file is subject to change.
-[Building Use Asset Database (faster)] 106057.1us
+[Building Default Build Script] 8316473.9us
+ [ProcessAllGroups] 621087.2us
+ [ContentPipeline.BuildAssetBundles] 7526943.4us
+  [LoadCachedData] 45408.1999999999us
+   1 items
+   [GetCachedInfoFile] 466.600000000199us
+   [Read and deserialize cache info] 40772.5us
+    Time spent deserializing: 20ms
+    Cache hit count: 1
+   [Check for changed dependencies] 2270.60000000029us
+  [LoadCachedData] 1782.69999999975us
+   2 items
+   [GetCachedInfoFile] 75.1000000000204us
+   [Read and deserialize cache info] 1658.5us
+    Time spent deserializing: 1ms
+    Cache hit count: 0
+   [Check for changed dependencies] 22.3999999998341us
+  [SaveCachedData] 23458.2us
+   Saving 2 infos
+   [SetupOperations] 115.80000000049us
+   [SerializingCacheInfos] 22724.2999999999us
+  [CreateWorkItems] 6364.09999999978us
+  [CalculateHashFileOffsets] 344.100000000253us
+  [Creating Cache Entries] 1321.89999999991us
+  [Load Cached Data] 744.200000000092us
+   [LoadCachedData] 737.899999999172us
+    2 items
+    [GetCachedInfoFile] 78.9999999997235us
+    [Read and deserialize cache info] 629.899999999907us
+     Time spent deserializing: 0ms
+     Cache hit count: 0
+    [Check for changed dependencies] 2.80000000020664us
+  [CopyingCachedFiles] 8.69999999940774us
+  [ArchiveItems] 61325.1us
+   Archiving 2 Bundles
+   [Archive a395f12c9b51eee478c6da8e902a6eff_unitybuiltinshaders.bundle] 50435.5us
+    [Copying From Cache Library/BuildCache/09/09a6534e858f1f78137049509be5cead/1a1e305574b13e6a587fcd3a79dde576/a395f12c9b51eee478c6da8e902a6eff_unitybuiltinshaders.bundle -> Temp/com.unity.addressables/AssetBundles/a395f12c9b51eee478c6da8e902a6eff_unitybuiltinshaders.bundle] 1052us
+   [Archive 6e1995e914a8017ef80b4b2d81ad7419.bundle] 41056.4us
+    [Copying From Cache Library/BuildCache/5a/5aa66833c98ac423e2d7343c61c65de2/5fe6876186f983a60bba165c10da0fe4/6e1995e914a8017ef80b4b2d81ad7419.bundle -> Temp/com.unity.addressables/AssetBundles/6e1995e914a8017ef80b4b2d81ad7419.bundle] 1676.5us
+  [PostArchiveProcessing] 952.60000000053us
+  [Copying To Cache] 6066.49999999991us
+   [SaveCachedData] 1160.40000000066us
+    Saving 2 infos
+    [SetupOperations] 83.3000000002357us
+    [SyncPendingSaves] 7.10000000071886us
+    [SerializingCacheInfos] 687.1000000001us
+  [SyncPendingSaves] 7.80000000031578us
+ [GenerateLocationListsTask.Run] 31740.7000000003us
+ [PostProcessBundles] 37156.0000000009us
+ [Catalog Entries.] 23888.3999999998us

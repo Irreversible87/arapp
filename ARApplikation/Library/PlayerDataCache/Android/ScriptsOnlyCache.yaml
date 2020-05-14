@@ -4,6 +4,7 @@ ScriptsOnlyBuild:
     - ARSpawner
     - ButtonManager
     - InAppMenu
+    - JSONReader
     - MainMenu
     Unity.Addressables.Editor.dll:
     - UnityEditor.AddressableAssets.AddressableAssetSettingsDefaultObject
@@ -75,51 +76,53 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11200}
+      Script: {instanceID: 11196}
     - Class: 114
-      Script: {instanceID: 11218}
+      Script: {instanceID: 11214}
     - Class: 114
-      Script: {instanceID: 11476}
+      Script: {instanceID: 11470}
     - Class: 114
-      Script: {instanceID: 11534}
+      Script: {instanceID: 11528}
     - Class: 114
-      Script: {instanceID: 11594}
+      Script: {instanceID: 11570}
     - Class: 114
-      Script: {instanceID: 11634}
+      Script: {instanceID: 11588}
     - Class: 114
-      Script: {instanceID: 11712}
+      Script: {instanceID: 11628}
     - Class: 114
-      Script: {instanceID: 11794}
+      Script: {instanceID: 11706}
     - Class: 114
-      Script: {instanceID: 12176}
+      Script: {instanceID: 11788}
     - Class: 114
-      Script: {instanceID: 12308}
+      Script: {instanceID: 12170}
     - Class: 114
-      Script: {instanceID: 12878}
+      Script: {instanceID: 12302}
     - Class: 114
-      Script: {instanceID: 13024}
+      Script: {instanceID: 12872}
     - Class: 114
-      Script: {instanceID: 13042}
+      Script: {instanceID: 13018}
     - Class: 114
-      Script: {instanceID: 13232}
+      Script: {instanceID: 13036}
+    - Class: 114
+      Script: {instanceID: 13226}
+    - Class: 114
+      Script: {instanceID: 13238}
     - Class: 114
       Script: {instanceID: 13244}
     - Class: 114
-      Script: {instanceID: 13250}
+      Script: {instanceID: 13526}
     - Class: 114
-      Script: {instanceID: 13532}
+      Script: {instanceID: 13592}
     - Class: 114
-      Script: {instanceID: 13598}
+      Script: {instanceID: 13682}
     - Class: 114
-      Script: {instanceID: 13688}
+      Script: {instanceID: 13720}
     - Class: 114
-      Script: {instanceID: 13726}
+      Script: {instanceID: 13966}
     - Class: 114
-      Script: {instanceID: 13972}
+      Script: {instanceID: 14144}
     - Class: 114
-      Script: {instanceID: 14150}
-    - Class: 114
-      Script: {instanceID: 14294}
+      Script: {instanceID: 14288}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -160,33 +163,33 @@ ScriptsOnlyBuild:
     - Class: 109
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11200}
+      Script: {instanceID: 11196}
     - Class: 114
-      Script: {instanceID: 11534}
+      Script: {instanceID: 11528}
     - Class: 114
-      Script: {instanceID: 11712}
+      Script: {instanceID: 11706}
     - Class: 114
-      Script: {instanceID: 12176}
+      Script: {instanceID: 12170}
     - Class: 114
-      Script: {instanceID: 12228}
+      Script: {instanceID: 12222}
     - Class: 114
-      Script: {instanceID: 12878}
+      Script: {instanceID: 12872}
     - Class: 114
-      Script: {instanceID: 13024}
+      Script: {instanceID: 13018}
     - Class: 114
-      Script: {instanceID: 13250}
+      Script: {instanceID: 13244}
     - Class: 114
-      Script: {instanceID: 13266}
+      Script: {instanceID: 13260}
     - Class: 114
-      Script: {instanceID: 13680}
+      Script: {instanceID: 13674}
     - Class: 114
-      Script: {instanceID: 13688}
+      Script: {instanceID: 13682}
     - Class: 114
-      Script: {instanceID: 13952}
+      Script: {instanceID: 13946}
     - Class: 114
-      Script: {instanceID: 14120}
+      Script: {instanceID: 14114}
     - Class: 114
-      Script: {instanceID: 14294}
+      Script: {instanceID: 14288}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -312,6 +315,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools.TestRunner.Callbacks
     className: TestResultRendererCallback
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: JSONReader
   - hash:
       serializedVersion: 2
       Hash: 234235b9fb07320d11497e08a726cc56
@@ -518,7 +527,7 @@ ScriptsOnlyBuild:
     className: Benchmark01
   - hash:
       serializedVersion: 2
-      Hash: 1f73d845a90ce06434ce1ce75ef7b7b2
+      Hash: 3672dadb570a2860658d18ecbf95a302
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ARSpawner
