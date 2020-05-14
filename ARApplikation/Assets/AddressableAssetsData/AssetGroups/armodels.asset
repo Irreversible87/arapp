@@ -17,34 +17,41 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: a395f12c9b51eee478c6da8e902a6eff
   m_SerializeEntries:
+  - m_GUID: 034a3de170db74e4bb188ae7b8eeeb6a
+    m_Address: RoboHumanoid
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - SciFi
+    m_MainAsset: {fileID: 2959839614778116937, guid: 034a3de170db74e4bb188ae7b8eeeb6a,
+      type: 3}
+    m_TargetAsset: {fileID: 2959839614778116937, guid: 034a3de170db74e4bb188ae7b8eeeb6a,
+      type: 3}
   - m_GUID: 262ec8be939c1e648b30d3590895a628
     m_Address: beetle
     m_ReadOnly: 0
     m_SerializedLabels:
     - cars
+    - Cars
     m_MainAsset: {fileID: 0}
     m_TargetAsset: {fileID: 0}
-  - m_GUID: 452af38be15bd1e40879426978f53510
-    m_Address: girlHead
+  - m_GUID: 2d4b33b13a408ff4e82a5ced04403aa2
+    m_Address: SciFiCharacter
     m_ReadOnly: 0
     m_SerializedLabels:
-    - arcontent
-    m_MainAsset: {fileID: 0}
-    m_TargetAsset: {fileID: 0}
-  - m_GUID: 6fdc338ef5b95bd42b14377fcebabacf
-    m_Address: Oliver Variant
+    - SciFi
+    m_MainAsset: {fileID: 6984011239872090900, guid: 2d4b33b13a408ff4e82a5ced04403aa2,
+      type: 3}
+    m_TargetAsset: {fileID: 6984011239872090900, guid: 2d4b33b13a408ff4e82a5ced04403aa2,
+      type: 3}
+  - m_GUID: 75fca43d5fb4cac4382515bb8c9a5480
+    m_Address: MuscleCar
     m_ReadOnly: 0
     m_SerializedLabels:
-    - cars
-    m_MainAsset: {fileID: 0}
-    m_TargetAsset: {fileID: 0}
-  - m_GUID: 9256c8e1b987fca48b6eed5c8acdcdcf
-    m_Address: fireExtinguisher
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - arcontent
-    m_MainAsset: {fileID: 0}
-    m_TargetAsset: {fileID: 0}
+    - Cars
+    m_MainAsset: {fileID: 444917500979866419, guid: 75fca43d5fb4cac4382515bb8c9a5480,
+      type: 3}
+    m_TargetAsset: {fileID: 444917500979866419, guid: 75fca43d5fb4cac4382515bb8c9a5480,
+      type: 3}
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: b67639d4f76765248a28fdd69619d9bb, type: 2}
   m_SchemaSet:
