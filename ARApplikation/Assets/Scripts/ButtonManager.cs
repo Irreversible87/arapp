@@ -11,6 +11,10 @@
  * 
  * -> init
  * 
+ * @Version 1.1
+ * @Date: 14/05/2020
+ * 
+ * -> Changed static class to monobehaviour
  */
 
 using System;
@@ -18,13 +22,17 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public static class ButtonManager
+public class ButtonManager : MonoBehaviour
 {
-    private static bool labelButtonsCreated = false;
-    private static bool assetButtonsCreated = false;
-    private static List<GameObject> CreatedLabelButtons
+    public GameObject prefabButton;
+    public GameObject libPanel;
+    public GameObject packagePanel;
+
+    private bool labelButtonsCreated = false;
+    private bool assetButtonsCreated = false;
+    private List<GameObject> CreatedLabelButtons
         = new List<GameObject>();
-    private static Dictionary<GameObject, int> CreatedAssetButtons
+    private Dictionary<GameObject, int> CreatedAssetButtons
         = new Dictionary<GameObject, int>();
     /*
      * GetCreatedLabelButton() method
@@ -33,7 +41,7 @@ public static class ButtonManager
      * 
      * @return List<GameObject>
      */
-    public static List<GameObject> GetCreatedLabelButtons()
+    public List<GameObject> GetCreatedLabelButtons()
     {
         return CreatedLabelButtons;
     }
@@ -44,7 +52,7 @@ public static class ButtonManager
      * 
      * @return Dictionary<GameObject, Int>
      */
-    public static Dictionary<GameObject, int> GetCreatedAssetButtons()
+    public Dictionary<GameObject, int> GetCreatedAssetButtons()
     {
         return CreatedAssetButtons;
     }
@@ -54,19 +62,18 @@ public static class ButtonManager
      * A method to create all necessary buttons dynamicly.
      * 
      */
-    public static void CreateButtons(AssetLabels assetLabels, List<GameObject> Assets, GameObject prefabButton,
-        GameObject packagePanel, GameObject libPanel)
+    public void CreateButtons(AssetLabels assetLabels, List<GameObject> Assets)
     {
         int counter;
         int tmp;
         // checks if label buttons were created once
-        if (labelButtonsCreated == false)
+        if (!labelButtonsCreated)
         {
             counter = assetLabels.GetLabelLenght();
             tmp = 0;
         }
         // checks if asset buttons were not created once
-        else if (assetButtonsCreated == false)
+        else if (!assetButtonsCreated)
         {
             counter = Assets.Count;
             tmp = 0;
@@ -82,7 +89,7 @@ public static class ButtonManager
         for (int i = 0; i < counter; i++)
         {
             // creates label buttons only once at start
-            if (labelButtonsCreated == false)
+            if (!labelButtonsCreated)
             {
                 GameObject button = GameObject.Instantiate(prefabButton); // instantiates a prefab button
                 button.name = "PackageButton" + i;
@@ -115,7 +122,7 @@ public static class ButtonManager
             }
         }
         // checks if label buttons were created and if not, sets them inactive in hierachy
-        if (labelButtonsCreated == false)
+        if (!labelButtonsCreated)
         {
             foreach (GameObject item in CreatedLabelButtons)
             {

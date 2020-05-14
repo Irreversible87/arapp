@@ -30,7 +30,7 @@
  * -> catched Null-Pointer Reference when no
  * asset was selected
  * 
- * @version: 1.3
+ * @Version: 1.3
  * @Date: 10/05/2020
  * 
  * -> created a new label based
@@ -38,11 +38,17 @@
  * -> changed ClearAsset() method to
  * reset the scene.
  * 
- * @version: 1.4
+ * @Version: 1.4
  * @Date: 13/05/2020
  * 
  * -> changed method to create buttons
  * -> created InitButtons method
+ * 
+ * @Version: 1.5
+ * @Date: 14/05/2019
+ * 
+ * -> removed CreateAndWaitUntilCompleted method
+ * -> moved AddressablesLoader in this class
  * 
  */
 using System;
@@ -52,17 +58,20 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
+using UnityEngine.AddressableAssets;
 
 public class ARSpawner : MonoBehaviour
 {
     public List<GameObject> Assets { get; } =
         new List<GameObject>();
-    public GameObject buttonPrefab;
+
     public GameObject libPanel;
     public GameObject packagePanel;
     public GameObject libMenu;
     public GameObject inAppMenu;
     public GameObject loadScreen;
+    public ButtonManager bm;
+    public JSONReader jsonReader;
 
     private ARRaycastManager rayManager;
     private GameObject arAsset;
@@ -74,6 +83,7 @@ public class ARSpawner : MonoBehaviour
         new Dictionary<GameObject, string>();
     private Dictionary<GameObject, int> assetButtons =
                 new Dictionary<GameObject, int>();
+    private List<string> CalledLabels = new List<string>();
     /*
      * Start() method
      * 
@@ -85,10 +95,9 @@ public class ARSpawner : MonoBehaviour
         // get raycaster manager objects
         rayManager = FindObjectOfType<ARRaycastManager>();
         // creates asset labels from json file
-        assetLabels = JSONReader.ReadAssetLabel();
-
+        assetLabels = jsonReader.GetComponent<JSONReader>().ReadAssetLabel();
+        bm.GetComponent<ButtonManager>().CreateButtons(assetLabels, Assets);
         // calls ButtonManager to create label buttons at start
-        ButtonManager.CreateButtons(assetLabels, Assets, buttonPrefab, packagePanel, libPanel);
         InitButtons();
     }
     /*
@@ -105,7 +114,7 @@ public class ARSpawner : MonoBehaviour
         rayManager.Raycast(new Vector2(Screen.width / 2, Screen.height / 2), hits, TrackableType.Planes);
 
         // checks if a object is already selected or not
-        if (objectSelected == true)
+        if (objectSelected)
         {
             // hitcheck, if AR plane surface is hit, update position and rotation of the asset
             if (hits.Count > 0)
@@ -125,28 +134,36 @@ public class ARSpawner : MonoBehaviour
         }
     }
     /*
-     * CreateAndWaitUntilCompleted Task
-     * 
-     * Creates objects of type CreateAdressablesLoader
-     * and invokes Init Asset method from CreateAddressablesLoader
-     * class. Also dissables all loaded assets in scene.
-     * 
-     * Async task to allow await for all assets to be created
-     * 
-     */
-    private async Task CreateAndWaitUntilCompleted(string label)
+* InitAsset() task
+* 
+* Task to load addressable assets via label and
+* instantiate after loading
+* 
+*/
+    private async Task InitAsset(string label)
     {
-        bool loaded = false;
-        while (loaded == false)
+        // checks if a label was already called
+        if (CalledLabels.Contains(label))
         {
-            loadScreen.SetActive(true);
-            await CreateAddressablesLoader.InitAsset(label, Assets);
-            loaded = true;
+            Debug.Log("Label: " + label + " was already called.");
+
         }
-        loadScreen.SetActive(false);
-        foreach (var asset in Assets)
+        else
         {
-            asset.SetActive(false);
+            // load addressables by name or label
+            var locations = await Addressables.LoadResourceLocationsAsync(label).Task;
+            CalledLabels.Add(label);
+            Debug.Log("CALLED: " + label);
+            // instantiate loaded addressables and add to list
+            foreach (var location in locations)
+            {
+                Assets.Add(await Addressables.InstantiateAsync(location).Task);
+            }
+            // set all loaded assets inactive
+            foreach (var asset in Assets)
+            {
+                asset.SetActive(false);
+            }
         }
     }
     /*
@@ -181,10 +198,10 @@ public class ARSpawner : MonoBehaviour
     private void InitButtons()
     {
         // checks if label buttons were created at start
-        if (labelButtonsInitiated == false)
+        if (!labelButtonsInitiated)
         {
             List<GameObject> CreatedLabelButtons = new List<GameObject>();
-            CreatedLabelButtons = ButtonManager.GetCreatedLabelButtons();
+            CreatedLabelButtons = bm.GetComponent<ButtonManager>().GetCreatedLabelButtons();
 
             for (int i = 0; i < CreatedLabelButtons.Count; i++)
             {
@@ -198,8 +215,8 @@ public class ARSpawner : MonoBehaviour
         else
         {
             // gets the created asset buttons from ButtonManger
-            assetButtons = ButtonManager.GetCreatedAssetButtons();
-            
+            assetButtons = bm.GetComponent<ButtonManager>().GetCreatedAssetButtons();
+
             foreach (KeyValuePair<GameObject, int> kvp in assetButtons)
             {
                 // Sets the index for all created asset buttons
@@ -260,11 +277,11 @@ public class ARSpawner : MonoBehaviour
                 {
                     // wait for addressables to load
                     bool loaded = false;
-                    while (loaded == false)
+                    while (!loaded)
                     {
                         loadScreen.SetActive(true);
                         // call and wait for all addressables to load
-                        await CreateAndWaitUntilCompleted(selectedLabel);
+                        await InitAsset(selectedLabel);
                         loaded = true;
                     }
                     if (groups.ContainsValue(selectedLabel))
@@ -274,7 +291,7 @@ public class ARSpawner : MonoBehaviour
                     else
                     {
                         // create buttons and initialise them
-                        ButtonManager.CreateButtons(assetLabels, Assets, buttonPrefab, packagePanel, libPanel);
+                        bm.GetComponent<ButtonManager>().CreateButtons(assetLabels, Assets);
                     }
                     // init the buttons to check if asset group = label group
                     InitButtons();

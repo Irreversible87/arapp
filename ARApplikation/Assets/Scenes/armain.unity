@@ -372,7 +372,7 @@ GameObject:
   - component: {fileID: 338849345}
   - component: {fileID: 338849347}
   m_Layer: 0
-  m_Name: assetHolder
+  m_Name: ARContentManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -404,13 +404,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55ce4d7590a1d18439e6ad75060d43eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonPrefab: {fileID: 5174785197781259954, guid: f72d0d47e6de8cc4ea74a98c50a64a52,
-    type: 3}
   libPanel: {fileID: 1286884097}
   packagePanel: {fileID: 1579982419}
   libMenu: {fileID: 1236269277}
   inAppMenu: {fileID: 1530448735}
   loadScreen: {fileID: 1157101780}
+  bm: {fileID: 963339772}
+  jsonReader: {fileID: 394080995}
 --- !u!1 &348567456
 GameObject:
   m_ObjectHideFlags: 0
@@ -540,6 +540,49 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 348567456}
   m_CullTransparentMesh: 0
+--- !u!1 &394080994
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 394080996}
+  - component: {fileID: 394080995}
+  m_Layer: 0
+  m_Name: JSONReader
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &394080995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 394080994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 759ed212659a13c4999ad102b71cb5a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &394080996
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 394080994}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -376.01596, y: 2279.6343, z: -76.119514}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &441947967
 GameObject:
   m_ObjectHideFlags: 0
@@ -764,6 +807,53 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &963339770
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 963339771}
+  - component: {fileID: 963339772}
+  m_Layer: 0
+  m_Name: ButtonManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &963339771
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963339770}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -376.01596, y: 2279.6343, z: -76.119514}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &963339772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963339770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52133179329df954dbe848370ec9647d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabButton: {fileID: 5174785197781259954, guid: f72d0d47e6de8cc4ea74a98c50a64a52,
+    type: 3}
+  libPanel: {fileID: 1286884097}
+  packagePanel: {fileID: 1579982419}
 --- !u!1 &1030395322
 GameObject:
   m_ObjectHideFlags: 0
@@ -1292,7 +1382,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cdd8a42d4707dd4aa18321800337681, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseMenuUI: {fileID: 0}
 --- !u!1 &1441032256
 GameObject:
   m_ObjectHideFlags: 0

@@ -45,10 +45,10 @@ MonoBehaviour:
     y: 30
     width: 2560
     height: 1308
-  m_MinSize: {x: 678, y: 492}
-  m_MaxSize: {x: 14001, y: 14042}
+  m_MinSize: {x: 679, y: 492}
+  m_MaxSize: {x: 14002, y: 14042}
   vertical: 0
-  controlID: 98
+  controlID: 104
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -68,8 +68,8 @@ MonoBehaviour:
     y: 0
     width: 618
     height: 1308
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 17}
@@ -152,7 +152,7 @@ MonoBehaviour:
     y: 0
     width: 2560
     height: 1358
-  m_MinSize: {x: 875, y: 542}
+  m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &7
 MonoBehaviour:
@@ -221,7 +221,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 492}
   m_MaxSize: {x: 10001, y: 14042}
   vertical: 1
-  controlID: 99
+  controlID: 105
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -246,7 +246,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 221}
   m_MaxSize: {x: 8003, y: 4021}
   vertical: 0
-  controlID: 100
+  controlID: 106
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -470,20 +470,20 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/UI
+    - Assets/Scenes
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/UI
+  - Assets/Scenes
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\Dokumente\FH Emden Leer\2016 - Medientechnik\Bachelor Arbeit\ARApp\arapp\ARApplikation
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 202}
-    m_SelectedIDs: 383a0000
-    m_LastClickedID: 14904
-    m_ExpandedIDs: 00000000f4390000f6390000f8390000fa39000000ca9a3b
+    scrollPos: {x: 0, y: 102}
+    m_SelectedIDs: 143a0000
+    m_LastClickedID: 14868
+    m_ExpandedIDs: 00000000f8390000fa390000fc390000fe39000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -511,7 +511,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000f4390000f6390000f8390000fa390000
+    m_ExpandedIDs: 00000000f8390000fa390000fc390000fe390000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -634,9 +634,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
+      m_SelectedIDs: b0450000
       m_LastClickedID: 0
-      m_ExpandedIDs: eee9feff08eafeff0aeafeff0eeafeff60edfeff78edfeffa0eefeffa4eefeff26f0feff3ef0feff44f0feff4cf0feff0cf3feff24f3feff4cf4feff50f4feff84fdfeff8efdfeff4e17ffff101cffff281cffff521dffff561dffff4820ffff9e23ffffd228ffffda2dffff6031ffffe43affff283effffa642ffff2446ffffb06dffff2a7affff1682ffff5286ffff5a95fffff8a3ffff2ca7ffff94baffff76dfffff32ecffff34f7ffff3af7ffff6efbfffff4ffffff5643000078430000b0430000a0470000c4470000e64700009c520000b0520000be520000685e00007c5e00008a5e00007e65000092650000a0650000e4660000f866000006670000366b00004a6b0000586b0000e2700000f6700000047100004c720000607200006e720000227500003675000044750000687900007c7900008a790000f88400000c8500001a850000608600007486000082860000ce870000e2870000f0870000368900004a89000058890000c28a0000d68a0000e48a00002e8c0000428c0000508c0000148f0000288f0000368f00007c900000909000009e900000129400003e940000ac960000
+      m_ExpandedIDs: 54f0ffff3ef1ffff6efbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -698,7 +698,7 @@ MonoBehaviour:
   m_Position:
     m_Target: {x: -376.01596, y: 2279.6343, z: -76.119514}
     speed: 2
-    m_Value: {x: -337.36017, y: 2229.9739, z: -66.51912}
+    m_Value: {x: -376.01596, y: 2279.6343, z: -76.119514}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -750,7 +750,7 @@ MonoBehaviour:
   m_Size:
     m_Target: 2231.6614
     speed: 2
-    m_Value: 2135.561
+    m_Value: 2231.6614
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -834,9 +834,9 @@ MonoBehaviour:
     m_VAllowExceedBaseRangeMax: 1
     m_ScaleWithWindow: 0
     m_HSlider: 0
-    m_VSlider: 1
+    m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 1
+    m_EnableMouseInput: 0
     m_EnableSliderZoomHorizontal: 0
     m_EnableSliderZoomVertical: 0
     m_UniformScale: 1

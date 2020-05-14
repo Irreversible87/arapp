@@ -66,7 +66,6 @@
     <Compile Include="Assets\Scripts\ARSpawner.cs" />
     <Compile Include="Assets\Scripts\AssetLabels.cs" />
     <Compile Include="Assets\Scripts\ButtonManager.cs" />
-    <Compile Include="Assets\Scripts\CreateAddressablesLoader.cs" />
     <Compile Include="Assets\Scripts\InAppMenu.cs" />
     <Compile Include="Assets\Scripts\JSONReader.cs" />
     <Compile Include="Assets\Scripts\MainMenu.cs" />

@@ -15,7 +15,7 @@
 using System.IO;
 using UnityEngine;
 
-public static class JSONReader
+public class JSONReader : MonoBehaviour
 {
     /*
      * ReadAssetLabel() method
@@ -25,7 +25,7 @@ public static class JSONReader
      * (string).
      * 
      */
-    public static AssetLabels ReadAssetLabel()
+    public AssetLabels ReadAssetLabel()
     {
         string path = Application.persistentDataPath + "/assetList.json";
         string jsonString = File.ReadAllText(path);

@@ -16,8 +16,6 @@ using UnityEngine.SceneManagement;
 
 public class InAppMenu : MonoBehaviour
 {
-    // init pause menu game object
-    public GameObject pauseMenuUI;
     /*
      * LoadMenu() method
      * 
