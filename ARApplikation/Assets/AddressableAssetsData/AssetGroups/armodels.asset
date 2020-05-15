@@ -18,13 +18,49 @@ MonoBehaviour:
   m_GUID: a395f12c9b51eee478c6da8e902a6eff
   m_SerializeEntries:
   - m_GUID: 262ec8be939c1e648b30d3590895a628
-    m_Address: beetle
+    m_Address: Beetle
     m_ReadOnly: 0
     m_SerializedLabels:
     - cars
     - Cars
+    m_MainAsset: {fileID: 6161513581339617249, guid: 262ec8be939c1e648b30d3590895a628,
+      type: 3}
+    m_TargetAsset: {fileID: 6161513581339617249, guid: 262ec8be939c1e648b30d3590895a628,
+      type: 3}
+  - m_GUID: 78913674d2d74a8489a8dccf3be66d91
+    m_Address: Assets/Prefabs/RaceCar.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Cars
     m_MainAsset: {fileID: 0}
     m_TargetAsset: {fileID: 0}
+  - m_GUID: 7c99490d9fe0eb646ba22727c59f50b8
+    m_Address: AlienHead
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - SciFi
+    m_MainAsset: {fileID: 7550388390171113980, guid: 7c99490d9fe0eb646ba22727c59f50b8,
+      type: 3}
+    m_TargetAsset: {fileID: 7550388390171113980, guid: 7c99490d9fe0eb646ba22727c59f50b8,
+      type: 3}
+  - m_GUID: 85c214588e94e154596ed9ee36e47479
+    m_Address: Goomba
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Character
+    m_MainAsset: {fileID: 8728477907491215859, guid: 85c214588e94e154596ed9ee36e47479,
+      type: 3}
+    m_TargetAsset: {fileID: 8728477907491215859, guid: 85c214588e94e154596ed9ee36e47479,
+      type: 3}
+  - m_GUID: b0d5b66de0cdb2448a394734ff673441
+    m_Address: CubeSphere
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Shapes
+    m_MainAsset: {fileID: 4342700918213203296, guid: b0d5b66de0cdb2448a394734ff673441,
+      type: 3}
+    m_TargetAsset: {fileID: 4342700918213203296, guid: b0d5b66de0cdb2448a394734ff673441,
+      type: 3}
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: b67639d4f76765248a28fdd69619d9bb, type: 2}
   m_SchemaSet:
