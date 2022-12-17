@@ -1,3 +1,3 @@
 # Augmented Reality Cloud App
 
-Bachelorarbeit Pastoor, Lars
+Created for my Bachelor Thesis about "Cloud connectivity for Augmented Reality Content" in 2020.
